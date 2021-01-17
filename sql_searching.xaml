@@ -1,0 +1,69 @@
+﻿<Window x:Class="rab_stol.sql_searching"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rab_stol"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="sql_searching" Height="450" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="368*"/>
+            <RowDefinition Height="51*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Background="White"  Padding="5"  CornerRadius="20"  Margin="2">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid x:Name="searching">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="52*" />
+                    <RowDefinition Height="62*" />
+                    <RowDefinition Height="69*" />
+                    <RowDefinition Height="171*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="135*"/>
+                    <ColumnDefinition Width="120*"/>
+                    <ColumnDefinition Width="127*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Сервер" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Center" Margin="32,0" Width="88"  >
+                    192.168.2.7
+                </TextBox>
+                <RadioButton x:Name="radio_user_inf" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0,10" >
+                    <RadioButton.Content>
+                        <TextBox IsReadOnly="True" BorderThickness="0" Text="Пользователь программ на делфи" HorizontalAlignment="Left" TextWrapping="Wrap" Width="134" Height="47"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <TextBox x:Name="user_inf_surname" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top"></TextBox>
+                <RadioButton x:Name="radio_user_profile" Grid.Row="2" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0,10">
+                    <RadioButton.Content>
+                        <TextBox IsReadOnly="True" BorderThickness="0" Text="Профили программ на делфи у пользователя" HorizontalAlignment="Left" TextWrapping="Wrap" Width="134" Height="47"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <TextBox x:Name="user_inf_profile" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Идентификатор пользователя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top"/>
+            </Grid>
+
+            <!--<ScrollBar Height="Auto" HorizontalAlignment="Right" Visibility="Visible"/>
+            -->
+
+            <!--<TextBox materialDesign:HintAssist.Hint="login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <PasswordBox materialDesign:HintAssist.Hint="pass" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+            <PasswordBox materialDesign:HintAssist.Hint="double pass" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+            <TextBox materialDesign:HintAssist.Hint="mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
+
+        </Border>
+
+        <DataGrid Grid.Row="0" Grid.Column="1" Height="Auto" Background="Aqua"></DataGrid>
+
+
+
+        <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="search" Content="Поиск" Height="Auto" />
+    </Grid>
+</Window>

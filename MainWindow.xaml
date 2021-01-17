@@ -1,0 +1,61 @@
+﻿<Window x:Class="rab_stol.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rab_stol"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        x:Name="MainForm"
+        Title="Рабочий стол Максима 1.0" Height="600" Width="1000">
+    <!--<Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard TargetProperty="Width" TargetName="btn_work_sql">
+                        <DoubleAnimation From="325" To="0"
+                                         AutoReverse="True"
+                                         RepeatBehavior="3x"
+                                         Duration="0:0:3"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>--> 
+    <Grid x:Name="Mainroot" >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" x:Name="label_hello" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="0" Grid.Column="0" x:Name="btn_sql_searching" Height="Auto" Click="btn_sql_searching_Click" MouseDoubleClick="btn_sql_searching_MouseDoubleClick" MouseEnter="btn_sql_searching_MouseEnter">Поиск по базе</Button>
+        <Button Grid.Row="0" Grid.Column="2" x:Name="btn_update_sales">Обработка продаж</Button>
+        <Button Grid.Row="1" Grid.Column="0" x:Name="btn_work_sql" Height="Auto">Работа с базой</Button>
+        <Button Grid.Row="1" Grid.Column="2" x:Name="btn_create_tt" Height="Auto">Новые клиентские карточки</Button>
+
+        <!--<Border MinWidth="600" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="850" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="Red" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Hello dsfs" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" />
+
+                <Grid Margin="0 0 0 20">
+                    <Button HorizontalAlignment="Left" Content="регистр" />
+                    <Button HorizontalAlignment="Right" Content="sign" Style="{StaticResource MaterialDesignFlatButton}" />
+                </Grid>
+
+                <TextBox materialDesign:HintAssist.Hint="login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <PasswordBox materialDesign:HintAssist.Hint="pass" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                <PasswordBox materialDesign:HintAssist.Hint="double pass" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                <TextBox materialDesign:HintAssist.Hint="mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <Button Content="registration" Margin="0 20" />
+            </StackPanel>
+        </Border>-->
+    </Grid>
+</Window>
