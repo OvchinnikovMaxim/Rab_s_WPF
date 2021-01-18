@@ -22,6 +22,9 @@ namespace rab_stol
         public sql_searching()
         {
             InitializeComponent();
+
+            combo_zavod.SelectedIndex = 0;
+            
         }
     }
 }

@@ -40,12 +40,19 @@ namespace rab_stol
         {
 
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(300), RepeatBehavior=new RepeatBehavior(1) };
-                RotateTransform rt = new RotateTransform() { CenterX = 50, CenterY = 50 };
-                this.btn_sql_searching.RenderTransform = rt;
-            
+            RotateTransform rt = new RotateTransform() { CenterX = 50, CenterY = 50 };
+            this.btn_sql_searching.RenderTransform = rt;
+
+            if (btn_sql_searching.Content.ToString() == "привет всем")
+            {
+                btn_sql_searching.Content = "Поиск по базе";
+            }
+            else
+            {
                 btn_sql_searching.Content = "привет всем";
+            }
             
-                rt.BeginAnimation(RotateTransform.AngleProperty, da);
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
 
             //sql_searching sqlSearching = new sql_searching();
             //sqlSearching.Show();
