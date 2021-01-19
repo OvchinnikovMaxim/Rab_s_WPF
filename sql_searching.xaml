@@ -97,10 +97,10 @@
                     <RadioButton x:Name="radio_prod_price" Grid.Row="8" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0" Padding="4,0,0,0" Content="Продукция в прайсе" />
                     <TextBox x:Name="prod_price" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Номер прайс-листа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
                     
-                    <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0" Margin="0,0,0,0" />
+                    <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,1" Margin="0,0,0,0" />
                     <RadioButton x:Name="radio_search_SD" Grid.Row="9" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0" Padding="4,0,0,0" Content="Поиск по базе SD" />
                     <Canvas x:Name="search_sd" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2">
-                        <ListBox x:Name="list_search_word" Width="220"  BorderBrush="#FFD62C2C" Canvas.Top="3" Canvas.Left="3" BorderThickness="1" Height="114"/>
+                        <ListBox x:Name="list_search_word" Width="220"  BorderBrush="#FF0C0B0B" Canvas.Top="3" Canvas.Left="3" BorderThickness="1" Height="114"/>
                         <Button x:Name="add_word" Content="+" Canvas.Top="10" Canvas.Right="20" Width="49"/>
                         <Button x:Name="del_word" Content="X" Canvas.Top="45" Canvas.Right="20" Width="49"/>
                         <Button x:Name="clear_word" Content="XX" Canvas.Top="80" Canvas.Right="20" Width="49"/>
