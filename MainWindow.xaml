@@ -33,7 +33,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" x:Name="label_hello" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="0" Grid.Column="0" x:Name="btn_sql_searching" Height="Auto" Click="btn_sql_searching_Click" MouseDoubleClick="btn_sql_searching_MouseDoubleClick" MouseEnter="btn_sql_searching_MouseEnter" ToolTip="1 ЛКМ- что делает, 2 ЛКМ - форма для работы">Поиск по базе</Button>
+        <Button Grid.Row="0" Grid.Column="0" x:Name="btn_sql_searching" Height="Auto" Click="btn_sql_searching_Click" MouseDoubleClick="btn_sql_searching_MouseDoubleClick" ToolTip="1 ЛКМ- что делает, 2 ЛКМ - форма для работы">Поиск по базе</Button>
         <Button Grid.Row="0" Grid.Column="2" x:Name="btn_update_sales">Обработка продаж</Button>
         <Button Grid.Row="1" Grid.Column="0" x:Name="btn_work_sql" Height="Auto">Работа с базой</Button>
         <Button Grid.Row="1" Grid.Column="2" x:Name="btn_create_tt" Height="Auto">Новые клиентские карточки</Button>
