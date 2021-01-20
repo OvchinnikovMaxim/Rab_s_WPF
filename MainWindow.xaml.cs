@@ -25,7 +25,7 @@ namespace rab_stol
         {
             InitializeComponent();
 
-            label_hello.Text = "Hello" + '\n' + Environment.UserName;
+            label_hello.Content = "Hello" + '\n' + Environment.UserName;
 
             #region анимация кодом
             /*DoubleAnimation btnAnimation = new DoubleAnimation();

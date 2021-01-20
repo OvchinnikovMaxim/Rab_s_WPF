@@ -42,7 +42,7 @@
                     </TextBox>
 
                     <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
-                    <RadioButton x:Name="radio_user_inf" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Right" Width="160" Margin="0,0,2,0" Padding="0" >
+                    <RadioButton x:Name="radio_user_inf" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Right" Width="160" Margin="0,0,2,0" Padding="0" IsChecked="True" >
                         <RadioButton.Content>
                             <TextBox IsReadOnly="True" BorderThickness="0" Text="Пользователь программ на делфи" HorizontalAlignment="Left" TextWrapping="Wrap" Width="134" Height="41" VerticalAlignment="Center" Padding="4,0,0,0"/>
                         </RadioButton.Content>
@@ -63,22 +63,22 @@
                         <TextBox x:Name="login_ncsd" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
                         <TextBox x:Name="name_ncsd" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
                         <TextBox x:Name="surname_ncsd" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top"/>
-                        <TextBox x:Name="IDuser_ncsd" materialDesign:HintAssist.Hint="Код сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" PreviewTextInput="IDuser_ncsd_PreviewTextInput"/>
+                        <TextBox x:Name="IDuser_ncsd" materialDesign:HintAssist.Hint="Код сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" PreviewTextInput="IDuser_ncsd_PreviewTextInput" Text="99999"/>
                     </StackPanel>
 
                     <RadioButton x:Name="radio_distr" Grid.Row="4" Grid.Column="0" Content="Дистрибьютор" HorizontalAlignment="Left" Width="160" VerticalAlignment="Center" Height="18" Style="{StaticResource MaterialDesignAccentRadioButton}" Margin="0"/>
                     <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0" Margin="0,0,0,0" />
                     <StackPanel x:Name="panel_distr" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="0" >
                         <TextBox x:Name="name_distr" materialDesign:HintAssist.Hint="Наименование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
-                        <TextBox x:Name="id_distr" materialDesign:HintAssist.Hint="Код дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" PreviewTextInput="id_distr_PreviewTextInput" />
+                        <TextBox x:Name="id_distr" materialDesign:HintAssist.Hint="Код дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" PreviewTextInput="id_distr_PreviewTextInput" Text="99999" />
                     </StackPanel>
 
                     <RadioButton x:Name="radio_login_distr" Grid.Row="5" Grid.Column="0" Content="Логины для дистров" HorizontalAlignment="Left" Width="160" VerticalAlignment="Center" Height="18" Style="{StaticResource MaterialDesignAccentRadioButton}" Margin="0"/>
                     <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0" Margin="0,0,0,0" />
                     <Label x:Name="label_zavod" Grid.Row="5" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Content="Завод" />
                     <ComboBox x:Name="combo_zavod" Grid.Row="5" Grid.Column="2" Style="{StaticResource MaterialDesignComboBox}" >
-                        <TextBlock Text="НК"/>
-                        <TextBlock Text="КЖК, НБП"/>
+                        <Label Content="НК"/>
+                        <Label Content="КЖК, НБП"/>
                     </ComboBox>
 
                     <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0" Margin="0,0,0,0" />
@@ -108,7 +108,7 @@
                 </Grid>
             </ScrollViewer>
         </Border>
-        <DataGrid x:Name="dataGR" Grid.Row="0" Grid.Column="1" Height="Auto" Background="Aqua" SelectionMode="Single" />
+        <DataGrid x:Name="dataGR" Grid.Row="0" Grid.Column="1" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False"  />
         <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="search" Content="Поиск" Height="Auto" IsDefault="True" Click="search_Click" />
     </Grid>
 </Window>

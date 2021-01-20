@@ -37,7 +37,7 @@ namespace rab_stol
         }
 
 
-        #region форма добавления слова/фразы
+        #region форма добавления слова/фразы или очищения поиска
         private void add_word_Click(object sender, RoutedEventArgs e)
         {
             Word_search_form word_Search = new Word_search_form();
@@ -56,23 +56,34 @@ namespace rab_stol
         } 
         #endregion
 
+        /// <summary>
+        /// Активация поля для поиска по SD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radio_search_SD_Checked(object sender, RoutedEventArgs e)
         {
             search_sd.IsEnabled = true;
         }
 
+        /// <summary>
+        /// Дезактивация поля для поиска по SD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radio_search_SD_Unchecked(object sender, RoutedEventArgs e)
         {
             search_sd.IsEnabled = false;
         }
 
-        private void search_Click(object sender, RoutedEventArgs e)
+        public void search_Click(object sender, RoutedEventArgs e)
         {
             connection = new SqlConnection(conSTR(text_server.Text));
             connection.Open();
-
+            
             try
             {
+                
                 if (radio_user_inf.IsChecked == true)
                 {
                     adapter = new SqlDataAdapter(q.User_inf(user_inf_surname.Text), connection);
@@ -143,9 +154,10 @@ namespace rab_stol
 
                     adapter = new SqlDataAdapter(query, connection);
                 }
-
+                
+                                
                 dt = new DataTable();
-                adapter.Fill(dt);
+                adapter.Fill(dt);                
                 dataGR.ItemsSource = dt.DefaultView;
             }
             catch(Exception ex)
@@ -215,9 +227,14 @@ namespace rab_stol
             {
                 e.Handled = true;
             }
-        } 
+        }
         #endregion
 
+        /// <summary>
+        /// Формирование строки подключения
+        /// </summary>
+        /// <param name="server">IP адрес сервера</param>
+        /// <returns>строка подключения</returns>
         public string conSTR(string server)
         {
             SqlConnectionStringBuilder conSTR = new SqlConnectionStringBuilder();
