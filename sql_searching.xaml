@@ -58,7 +58,7 @@
                     <TextBox x:Name="user_inf_profile" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Идентификатор пользователя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" PreviewTextInput="user_inf_profile_PreviewTextInput"/>
 
                     <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0"/>
-                    <RadioButton x:Name="radio_user_ncsd" Grid.Row="3" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0" Padding="4,0,0,0" Content="Пользователь в NCSD" VerticalAlignment="Center" Height="18"/>
+                    <RadioButton x:Name="radio_user_ncsd" Grid.Row="3" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0" Padding="4,0,0,0" Content="Пользователь в NCSD" VerticalAlignment="Center" Height="18" ToolTip="Для более точного поиска заполните все поля, одно из которых заполнено правильно"/>
                     <StackPanel x:Name="panel_user_ncsd" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >
                         <TextBox x:Name="login_ncsd" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
                         <TextBox x:Name="name_ncsd" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
@@ -66,7 +66,7 @@
                         <TextBox x:Name="IDuser_ncsd" materialDesign:HintAssist.Hint="Код сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" PreviewTextInput="IDuser_ncsd_PreviewTextInput" Text="99999"/>
                     </StackPanel>
 
-                    <RadioButton x:Name="radio_distr" Grid.Row="4" Grid.Column="0" Content="Дистрибьютор" HorizontalAlignment="Left" Width="160" VerticalAlignment="Center" Height="18" Style="{StaticResource MaterialDesignAccentRadioButton}" Margin="0"/>
+                    <RadioButton x:Name="radio_distr" Grid.Row="4" Grid.Column="0" Content="Дистрибьютор" HorizontalAlignment="Left" Width="160" VerticalAlignment="Center" Height="18" Style="{StaticResource MaterialDesignAccentRadioButton}" Margin="0" ToolTip="Для более точного поиска заполните все поля, одно из которых заполнено правильно"/>
                     <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0" Margin="0,0,0,0" />
                     <StackPanel x:Name="panel_distr" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="0" >
                         <TextBox x:Name="name_distr" materialDesign:HintAssist.Hint="Наименование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
