@@ -38,18 +38,26 @@ namespace rab_stol
 
         private void btn_sql_searching_Click(object sender, RoutedEventArgs e)
         {
-
-            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(300), RepeatBehavior=new RepeatBehavior(1) };
-            RotateTransform rt = new RotateTransform() { CenterX = 50, CenterY = 50 };
+            
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior=new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
             this.btn_sql_searching.RenderTransform = rt;
 
-            if (btn_sql_searching.Content.ToString() == "привет всем")
+            if (text_btn_search.Text == "Поиск по базе")
             {
-                btn_sql_searching.Content = "Поиск по базе";
+                text_btn_search.Text = "*" + "Пользователь программ на делфи";
+                text_btn_search.Text += '\n' + "*" + "Какие программы на делфи у данного пользователя";
+                text_btn_search.Text += '\n' + "*" + "Пользователь NCSD";
+                text_btn_search.Text += '\n' + "*" + "Информация у дистрибьюторе";
+                text_btn_search.Text += '\n' + "*" + "Логины для дистрибьюторов";
+                text_btn_search.Text += '\n' + "*" + "Продукция в последнем прайсе дистра";
+                text_btn_search.Text += '\n' + "*" + "Список прайсов дистрибьютора";
+                text_btn_search.Text += '\n' + "*" + "Продукция в прайс-листе";
+                text_btn_search.Text += '\n' + "*" + "Поиск по базе сервис деска";
             }
             else
             {
-                btn_sql_searching.Content = "привет всем";
+                text_btn_search.Text = "Поиск по базе";
             }
             
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
