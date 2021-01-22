@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 //для анимации
 using System.Windows.Media.Animation;
 
@@ -72,6 +63,11 @@ namespace rab_stol
             sqlSearching.Show();
         }
 
-        
+        private void btn_create_tt_Click(object sender, RoutedEventArgs e)
+        {
+            Create_TT_form create_TT = new Create_TT_form();
+            create_TT.Show();
+        }
+
     }
 }
