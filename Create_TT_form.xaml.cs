@@ -39,6 +39,13 @@ namespace rab_stol
             InitializeComponent();
 
             combo_zavod.SelectedIndex = 0;
+
+            text_info.Text = '\n' + "Прежде чем выбрать файл через кнопку \"Выбор файла\":" + 
+                             '\n' + "1) Проверить расстановку столбцов с шаблоном (шаблон в папке data\\создание ТТ в той же директории что и запущенная программа)." + 
+                             '\n' + "2) Необходимо в самом файле в столбцы \"Канал\" и \"Тип\" поставить их коды." + 
+                             '\n' + 
+                             '\n' + "Каналы смотреть в таблице NEFCO.DBO.CLIENT_CARD_CATEGORY." + 
+                             '\n' + "Типы смотреть в таблице NEFCO.DBO.CLIENT_CARD_TYPE.";
         }
 
         private void btn_connect_Click(object sender, RoutedEventArgs e)
@@ -69,10 +76,49 @@ namespace rab_stol
             sc.TextChisla(e);
         }
 
+        private void text_server_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            sc.TextChanged(connection, text_server, label_status);
+        }
+
         private void btn_creat_tt_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                int zav, typeTT, kanal, sector;
+                zav = combo_zavod.SelectedIndex == 0 ? 1 : 2;
 
+                int contractorID = Convert.ToInt32(text_distr.Text);
+
+                string inn, name, address;
+
+                for (int i = 1; i < dt_excel.Rows.Count; i++)
+                {
+                    inn = dt_excel.Rows[i][3].ToString();
+                    name = dt_excel.Rows[i][1].ToString();
+                    name = name.Replace("'", "`");
+
+                    address = dt_excel.Rows[i][2].ToString();
+
+                    typeTT = Convert.ToInt32(dt_excel.Rows[i][6]);
+                    kanal = Convert.ToInt32(dt_excel.Rows[i][4]);
+                    sector = Convert.ToInt32(dt_excel.Rows[i][5]);
+
+                    SqlCommand cr_TT = new SqlCommand(q.create_newTT(zav, inn, name, address, typeTT, kanal, sector, contractorID), connection);
+                    cr_TT.ExecuteNonQuery();
+                }
+
+                int countTT = dt_excel.Rows.Count - 1;
+                MessageBox.Show("Количество созданных карточек = " + countTT, "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void choice_file_Click(object sender, RoutedEventArgs e)
@@ -141,9 +187,5 @@ namespace rab_stol
             return dt;
         }
 
-        private void text_server_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            sc.TextChanged(connection, text_server, label_status);
-        }
     }
 }
