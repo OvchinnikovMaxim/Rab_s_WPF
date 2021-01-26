@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Заведение клиентских карточек" Height="450" Width="800">
+        Title="Заведение клиентских карточек" Height="450" Width="800" Closing="create_tt_form_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>
@@ -22,7 +22,7 @@
         
         <Button x:Name="btn_connect" Grid.Row="0" Grid.Column="1" Content="Подключение" Height="Auto" Click="btn_connect_Click" FontFamily="Times New Roman" FontSize="18"/>
         <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"   PreviewTextInput="text_server_PreviewTextInput"  HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" />
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"   PreviewTextInput="text_server_PreviewTextInput"  HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" TextChanged="text_server_TextChanged" />
 
         <TextBlock x:Name="text_info" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="18"/>
 
