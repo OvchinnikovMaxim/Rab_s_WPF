@@ -16,7 +16,7 @@ namespace rab_stol
         {
             InitializeComponent();
 
-            label_hello.Content = "Hello" + '\n' + Environment.UserName;
+            label_hello.Content = "Привет тебе" + '\n' + Environment.UserName;
 
             #region анимация кодом
             /*DoubleAnimation btnAnimation = new DoubleAnimation();
@@ -27,37 +27,8 @@ namespace rab_stol
             #endregion
         }
 
+        #region Запуск соответствующих форм
         private void btn_sql_searching_Click(object sender, RoutedEventArgs e)
-        {
-            
-            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior=new RepeatBehavior(1) };
-            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
-            this.btn_sql_searching.RenderTransform = rt;
-
-            if (text_btn_search.Text == "Поиск по базе")
-            {
-                text_btn_search.Text = "*" + "Пользователь программ на делфи";
-                text_btn_search.Text += '\n' + "*" + "Какие программы на делфи у данного пользователя";
-                text_btn_search.Text += '\n' + "*" + "Пользователь NCSD";
-                text_btn_search.Text += '\n' + "*" + "Информация у дистрибьюторе";
-                text_btn_search.Text += '\n' + "*" + "Логины для дистрибьюторов";
-                text_btn_search.Text += '\n' + "*" + "Продукция в последнем прайсе дистра";
-                text_btn_search.Text += '\n' + "*" + "Список прайсов дистрибьютора";
-                text_btn_search.Text += '\n' + "*" + "Продукция в прайс-листе";
-                text_btn_search.Text += '\n' + "*" + "Поиск по базе сервис деска";
-            }
-            else
-            {
-                text_btn_search.Text = "Поиск по базе";
-            }
-            
-            rt.BeginAnimation(RotateTransform.AngleProperty, da);
-
-            //sql_searching sqlSearching = new sql_searching();
-            //sqlSearching.Show();
-        }
-
-        private void btn_sql_searching_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             sql_searching sqlSearching = new sql_searching();
             sqlSearching.Show();
@@ -69,5 +40,127 @@ namespace rab_stol
             create_TT.Show();
         }
 
+        private void btn_update_sales_Click(object sender, RoutedEventArgs e)
+        {
+            Update_sales_form update_Sales = new Update_sales_form();
+            update_Sales.Show();
+        }
+
+        private void btn_work_sql_Click(object sender, RoutedEventArgs e)
+        {
+            WorkSQL_form workSQL = new WorkSQL_form();
+            workSQL.Show();
+        }
+        #endregion
+
+        #region Анимации кнопок
+        private void btn_sql_searching_MouseEnter(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_sql_searching.RenderTransform = rt;
+
+            text_btn_search.Text = "*" + "Пользователь программ на делфи";
+            text_btn_search.Text += '\n' + "*" + "Какие программы на делфи у данного пользователя";
+            text_btn_search.Text += '\n' + "*" + "Пользователь NCSD";
+            text_btn_search.Text += '\n' + "*" + "Информация у дистрибьюторе";
+            text_btn_search.Text += '\n' + "*" + "Логины для дистрибьюторов";
+            text_btn_search.Text += '\n' + "*" + "Продукция в последнем прайсе дистра";
+            text_btn_search.Text += '\n' + "*" + "Список прайсов дистрибьютора";
+            text_btn_search.Text += '\n' + "*" + "Продукция в прайс-листе";
+            text_btn_search.Text += '\n' + "*" + "Поиск по базе сервис деска";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+        }
+
+        private void btn_sql_searching_MouseLeave(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_sql_searching.RenderTransform = rt;
+
+            text_btn_search.Text = "Поиск по базе";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+        }
+
+        private void btn_update_sales_MouseEnter(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_update_sales.RenderTransform = rt;
+
+            text_btn_update_sales.Text = "*" + "Проверка продаж";
+            text_btn_update_sales.Text += '\n' + "*" + "Обработка продаж";
+            text_btn_update_sales.Text += '\n' + "*" + "Переобработка продаж";
+            text_btn_update_sales.Text += '\n' + "*" + "Пометка продаж на удаление в базе UNITY";
+            text_btn_update_sales.Text += '\n' + "*" + "Поиск дистрибьютора по наименованию";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+        }
+
+        private void btn_update_sales_MouseLeave(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_update_sales.RenderTransform = rt;
+
+            text_btn_update_sales.Text = "Обработка продаж";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+        }
+
+        private void btn_work_sql_MouseEnter(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_work_sql.RenderTransform = rt;
+
+            text_btn_work_sql.Text = "*" + "Новый дистрибьютор";
+            text_btn_work_sql.Text += '\n' + "*" + "Новая транспортная";
+            text_btn_work_sql.Text += '\n' + "*" + "Новый пользователь программ на делфи";
+            text_btn_work_sql.Text += '\n' + "*" + "Копирование ТТ с сектора на сектор";
+            text_btn_work_sql.Text += '\n' + "*" + "Удаление заказа в ZAKAZ_HAT";
+            text_btn_work_sql.Text += '\n' + "*" + "Новый атрибут для материалов";
+            text_btn_work_sql.Text += '\n' + "*" + "Удаление остатков";
+            text_btn_work_sql.Text += '\n' + "*" + "Новый класс прайс-листа";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+        }
+
+        private void btn_work_sql_MouseLeave(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_work_sql.RenderTransform = rt;
+
+            text_btn_work_sql.Text = "Работа с базой";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+
+        }
+
+        private void btn_create_tt_MouseEnter(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_create_tt.RenderTransform = rt;
+
+            text_btn_create_tt.Text = "Загрузка заполненного по шаблону файла, для создания клиентских карточек";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+        }
+
+        private void btn_create_tt_MouseLeave(object sender, MouseEventArgs e)
+        {
+            DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
+            RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
+            this.btn_create_tt.RenderTransform = rt;
+
+            text_btn_create_tt.Text = "Заведение клиентских карточек";
+
+            rt.BeginAnimation(RotateTransform.AngleProperty, da);
+        } 
+        #endregion
     }
 }
