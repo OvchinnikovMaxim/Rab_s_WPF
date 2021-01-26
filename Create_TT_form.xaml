@@ -24,7 +24,7 @@
         <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"   PreviewTextInput="text_server_PreviewTextInput"  HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" TextChanged="text_server_TextChanged" />
 
-        <TextBlock x:Name="text_info" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="18"/>
+        <TextBlock x:Name="text_info" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
 
         <StackPanel x:Name="file_info" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
             <Label x:Name="file_name" Content="Файл" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
