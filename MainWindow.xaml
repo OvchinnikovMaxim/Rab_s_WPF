@@ -19,29 +19,29 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label_hello" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" />
+        <Label x:Name="label_hello" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="36" />
         
-        <Button Grid.Row="0" Grid.Column="0" x:Name="btn_sql_searching" Height="Auto" Click="btn_sql_searching_Click" MouseDoubleClick="btn_sql_searching_MouseDoubleClick" ToolTip="1 ЛКМ- что делает, 2 ЛКМ - форма для работы">
+        <Button Grid.Row="0" Grid.Column="0" x:Name="btn_sql_searching" Height="Auto" Click="btn_sql_searching_Click"  MouseEnter="btn_sql_searching_MouseEnter" MouseLeave="btn_sql_searching_MouseLeave">
             <Button.Content>
-                <TextBlock x:Name="text_btn_search" TextWrapping="Wrap"  Text="Поиск по базе"  />
+                <TextBlock x:Name="text_btn_search" TextWrapping="Wrap"  Text="Поиск по базе" FontSize="16"  />
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="1" Grid.Column="0" x:Name="btn_update_sales" Height="Auto">
+        <Button Grid.Row="1" Grid.Column="0" x:Name="btn_update_sales" Height="Auto" Click="btn_update_sales_Click" MouseEnter="btn_update_sales_MouseEnter" MouseLeave="btn_update_sales_MouseLeave">
             <Button.Content>
-                <TextBlock x:Name="text_btn_update_sales" TextWrapping="Wrap"  Text="Обработка продаж"  />
+                <TextBlock x:Name="text_btn_update_sales" TextWrapping="Wrap"  Text="Обработка продаж" FontSize="16" />
             </Button.Content>
         </Button>
         
-        <Button Grid.Row="0" Grid.Column="2" x:Name="btn_work_sql" Height="Auto">
+        <Button Grid.Row="0" Grid.Column="2" x:Name="btn_work_sql" Height="Auto" Click="btn_work_sql_Click" MouseEnter="btn_work_sql_MouseEnter" MouseLeave="btn_work_sql_MouseLeave">
             <Button.Content>
-                <TextBlock x:Name="text_btn_work_sql" TextWrapping="Wrap"  Text="Работа с базой"  />
+                <TextBlock x:Name="text_btn_work_sql" TextWrapping="Wrap"  Text="Работа с базой" FontSize="16" />
             </Button.Content>
         </Button>
         
-        <Button Grid.Row="1" Grid.Column="2" x:Name="btn_create_tt" Height="Auto" Click="btn_create_tt_Click">
+        <Button Grid.Row="1" Grid.Column="2" x:Name="btn_create_tt" Height="Auto" Click="btn_create_tt_Click" MouseEnter="btn_create_tt_MouseEnter" MouseLeave="btn_create_tt_MouseLeave">
             <Button.Content>
-                <TextBlock x:Name="text_btn_create_tt" TextWrapping="Wrap"  Text="Новые клиентские карточки"  />
+                <TextBlock x:Name="text_btn_create_tt" TextWrapping="Wrap"  Text="Новые клиентские карточки" FontSize="16" />
             </Button.Content>
         </Button>
 
