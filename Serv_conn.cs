@@ -54,14 +54,13 @@ namespace rab_stol
 
             try
             {
-                
+                if (conn != null)
+                {
                     conn.Close();
-                status.Content = "Отключено";
-                status.Foreground = Brushes.Red;
-                
-                
-                
+                    status.Content = "Отключено";
+                    status.Foreground = Brushes.Red;
 
+                }
             }
             catch (Exception)
             {
