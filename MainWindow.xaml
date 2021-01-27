@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         x:Name="MainForm"
         Title="Рабочий стол Максима 1.0" Height="600" Width="1000">
-    
+
     <Grid x:Name="Mainroot" >
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -19,8 +19,17 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label_hello" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="36" />
-        
+        <Label x:Name="label_hello" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="36" RenderTransformOrigin="1,1" Foreground="#DD013801" >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="5" AngleX="5"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
         <Button Grid.Row="0" Grid.Column="0" x:Name="btn_sql_searching" Height="Auto" Click="btn_sql_searching_Click"  MouseEnter="btn_sql_searching_MouseEnter" MouseLeave="btn_sql_searching_MouseLeave">
             <Button.Content>
                 <TextBlock x:Name="text_btn_search" TextWrapping="Wrap"  Text="Поиск по базе" FontSize="16"  />
@@ -32,19 +41,19 @@
                 <TextBlock x:Name="text_btn_update_sales" TextWrapping="Wrap"  Text="Обработка продаж" FontSize="16" />
             </Button.Content>
         </Button>
-        
+
         <Button Grid.Row="0" Grid.Column="2" x:Name="btn_work_sql" Height="Auto" Click="btn_work_sql_Click" MouseEnter="btn_work_sql_MouseEnter" MouseLeave="btn_work_sql_MouseLeave">
             <Button.Content>
                 <TextBlock x:Name="text_btn_work_sql" TextWrapping="Wrap"  Text="Работа с базой" FontSize="16" />
             </Button.Content>
         </Button>
-        
+
         <Button Grid.Row="1" Grid.Column="2" x:Name="btn_create_tt" Height="Auto" Click="btn_create_tt_Click" MouseEnter="btn_create_tt_MouseEnter" MouseLeave="btn_create_tt_MouseLeave">
             <Button.Content>
                 <TextBlock x:Name="text_btn_create_tt" TextWrapping="Wrap"  Text="Новые клиентские карточки" FontSize="16" />
             </Button.Content>
         </Button>
 
-        
+
     </Grid>
 </Window>
