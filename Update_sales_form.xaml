@@ -6,8 +6,51 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Update_sales_form" Height="450" Width="800">
-    <Grid>
-        
+        Title="Обработка продаж" Height="450" Width="1000">
+    <Grid x:Name="grid_update_sales">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49" />
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" MinWidth="150"/>
+            <ColumnDefinition Width="150" MinWidth="150"/>
+            <ColumnDefinition Width="150" MinWidth="150"/>
+            <ColumnDefinition Width="275" MinWidth="275"/>
+            <ColumnDefinition Width="275" MinWidth="275"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7"  />
+
+        <DataGrid x:Name="dataGR_UNITY" Grid.Row="0" Grid.Column="3" Grid.RowSpan="5" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" Height="Auto" Width="Auto" Margin="5,0,0,0"/>
+        <DataGrid x:Name="dataGR_NEFCO" Grid.Row="0" Grid.Column="4" Grid.RowSpan="5" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" Height="Auto" Width="Auto" Margin="5,0,0,0"/>
+
+        <TextBox x:Name="distr_name" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Название дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"  Margin="5,0" />
+        <Button x:Name="btn_search_distr" Grid.Row="1" Grid.Column="2"  Content="Поиск" FontFamily="Times New Roman" FontSize="18" Height="Auto"/>
+
+        <TextBox x:Name="text_distrID" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Код дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="17" Margin="0,0,5,0"/>
+        <DatePicker x:Name="date_begin" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Начало периода" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Times New Roman" FontSize="18" Height="39" Margin="0,10,5,0"/>
+        <DatePicker x:Name="date_end" Grid.Row="2" Grid.Column="2" materialDesign:HintAssist.Hint="Конец периода" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Times New Roman" FontSize="18" Height="39" Margin="0,10,0,0"/>
+
+        <Button x:Name="btn_check_sales" Grid.Row="3" Grid.Column="0" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto" Content="Проверка"/>
+        <Button x:Name="btn_obrabotka" Grid.Row="3" Grid.Column="1" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto" Content="Обработать" ToolTip="Обработка продаж!Отправка данных из UNITY в NEFCO" />
+        <Button x:Name="btn_pereobr" Grid.Row="3" Grid.Column="2" Margin="5" FontFamily="Times New Roman" FontSize="16" Height="Auto" Content="Переобработать" ToolTip="Пометка данных на удаление в NEFCO! Обработка продаж!"/>
+
+        <Canvas x:Name="update_UNITY_sales" Grid.Row="4" Grid.Column="0">
+            <CheckBox x:Name="check_update" Canvas.Left="5" Canvas.Top="10"  />
+            <Button x:Name="btn_update_UNITY" IsEnabled="False" Width="150" Height="93" Canvas.Top="33">
+                <Button.Content>
+                    <TextBlock Text="на удаление в UNITY" TextWrapping="Wrap" Height="Auto" Width="Auto" FontFamily="Times New Roman" FontSize="20" TextAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button.Content>
+            </Button>
+        </Canvas>
+        <Label x:Name="label_time" Grid.Row="4" Grid.Column="1" Content="00:00" FontFamily="Times New Roman" FontSize="36"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBlock x:Name="check_blocking" Grid.Row="4" Grid.Column="2" TextWrapping="Wrap" FontFamily="Times New Roman" FontSize="18" TextAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Проверьте нет ли блокирующих процессов" Foreground="Red" Visibility="Hidden"/>
+
     </Grid>
 </Window>
