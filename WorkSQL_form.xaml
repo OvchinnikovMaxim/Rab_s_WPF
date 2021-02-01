@@ -19,33 +19,33 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <Button x:Name="btn_new_distr" Grid.Row="0" Grid.Column="0" Margin="3" Height="Auto" >
+        <Button x:Name="btn_new_distr" Grid.Row="0" Grid.Column="0" Margin="3" Height="Auto" Click="btn_new_distr_Click" >
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Учетный данные для нового дистра" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_new_tek" Grid.Row="0" Grid.Column="1" Margin="3" Height="Auto">
+        <Button x:Name="btn_new_tek" Grid.Row="0" Grid.Column="1" Margin="3" Height="Auto" Click="btn_new_tek_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новая транспортная компания" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_new_user_inf" Grid.Row="0" Grid.Column="2" Margin="3" Height="Auto">
+        <Button x:Name="btn_new_user_inf" Grid.Row="0" Grid.Column="2" Margin="3" Height="Auto" Click="btn_new_user_inf_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый сотрудник для программ на делфи" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_copyTT" Grid.Row="0" Grid.Column="3" Margin="3" Height="Auto">
+        <Button x:Name="btn_copyTT" Grid.Row="0" Grid.Column="3" Margin="3" Height="Auto" Click="btn_copyTT_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Копирование ТТ с сектора на сектор от одного дистра другому" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
 
-        <Button x:Name="btn_delZAKAZ_in_ZAKAZHAT" Grid.Row="1" Grid.Column="0" Margin="3" Height="Auto">
+        <Button x:Name="btn_delZAKAZ_in_ZAKAZHAT" Grid.Row="1" Grid.Column="0" Margin="3" Height="Auto" Click="btn_delZAKAZ_in_ZAKAZHAT_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Удаление заказа в ZAKAZ_HAT" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_new_attr" Grid.Row="1" Grid.Column="1" Margin="3" Height="Auto">
+        <Button x:Name="btn_new_attr" Grid.Row="1" Grid.Column="1" Margin="3" Height="Auto" Click="btn_new_attr_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый атрибут для материалов" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
@@ -55,7 +55,7 @@
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Удаление остатков" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_class_price" Grid.Row="1" Grid.Column="3" Margin="3" Height="Auto">
+        <Button x:Name="btn_class_price" Grid.Row="1" Grid.Column="3" Margin="3" Height="Auto" Click="btn_class_price_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый класс прайс-листа" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
