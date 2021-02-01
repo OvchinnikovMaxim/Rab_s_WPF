@@ -1,4 +1,4 @@
-﻿<Window x:Class="rab_stol.WorkSQL_form"
+﻿<Window x:Name="workSQL_f" x:Class="rab_stol.WorkSQL_form"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,8 +6,27 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="WorkSQL_form" Height="450" Width="800">
+        Title="Работа с базой" Height="400" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+        <Button x:Name="btn_new_distr" Grid.Row="0" Grid.Column="0" Margin="3" Height="Auto"></Button>
+        <Button x:Name="btn_new_tek" Grid.Row="0" Grid.Column="1" Margin="3" Height="Auto"></Button>
+        <Button x:Name="btn_new_user_inf" Grid.Row="0" Grid.Column="2" Margin="3" Height="Auto"></Button>
+        <Button x:Name="btn_copyTT" Grid.Row="0" Grid.Column="3" Margin="3" Height="Auto"></Button>
+
+        <Button x:Name="btn_delZAKAZ_in_ZAKAZHAT" Grid.Row="1" Grid.Column="0" Margin="3" Height="Auto"></Button>
+        <Button x:Name="btn_new_attr" Grid.Row="1" Grid.Column="1" Margin="3" Height="Auto"></Button>
+        <Button x:Name="btn_del_ost" Grid.Row="1" Grid.Column="2" Margin="3" Height="Auto"></Button>
+        <Button x:Name="btn_class_price" Grid.Row="1" Grid.Column="3" Margin="3" Height="Auto"></Button>
     </Grid>
 </Window>
