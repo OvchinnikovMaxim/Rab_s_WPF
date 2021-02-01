@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
-        Title="DelZAKAZ_in_ZAKAZHAT_form" Height="450" Width="800">
-    <Grid>
-        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Удаление заказа в ZAKAZ_HAT" Height="277.5" Width="800">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition Height="71" MinHeight="71"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
+
+        <TextBox x:Name="text_zakazID" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код заказа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="text_zakazID_PreviewTextInput"/>
+        <Button x:Name="btn_del_zakaz" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="btn_del_zakaz_Click" Content="Удалить заказ"/>
+
+        <TextBox x:Name="comment" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap" TextAlignment="Justify" materialDesign:HintAssist.Hint="Комментарий" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="20"    HorizontalContentAlignment="Center" Margin="5" 
+                 Text="Заказ вручную удален из базы данных. Пользователь: Овчинников М. По обращению: Соколов Д. Причина: Задублировалась при выгрузке из 1С."/>
     </Grid>
 </Window>
