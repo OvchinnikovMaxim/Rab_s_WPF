@@ -71,6 +71,30 @@
     <Compile Include="Create_TT_form.xaml.cs">
       <DependentUpon>Create_TT_form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms_for workSQL\CopyTT_form.xaml.cs">
+      <DependentUpon>CopyTT_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\DelZAKAZ_in_ZAKAZHAT_form.xaml.cs">
+      <DependentUpon>DelZAKAZ_in_ZAKAZHAT_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\Del_ost_form.xaml.cs">
+      <DependentUpon>Del_ost_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\New_attr_form.xaml.cs">
+      <DependentUpon>New_attr_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\New_class_price_form.xaml.cs">
+      <DependentUpon>New_class_price_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\New_distr_form.xaml.cs">
+      <DependentUpon>New_distr_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\New_tek_form.xaml.cs">
+      <DependentUpon>New_tek_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\New_user_inf_form.xaml.cs">
+      <DependentUpon>New_user_inf_form.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Serv_conn.cs" />
     <Compile Include="sql_searching.xaml.cs">
       <DependentUpon>sql_searching.xaml</DependentUpon>
@@ -85,6 +109,38 @@
       <DependentUpon>WorkSQL_form.xaml</DependentUpon>
     </Compile>
     <Page Include="Create_TT_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\CopyTT_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\DelZAKAZ_in_ZAKAZHAT_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\Del_ost_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\New_attr_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\New_class_price_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\New_distr_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\New_tek_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\New_user_inf_form.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
