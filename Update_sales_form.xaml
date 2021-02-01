@@ -3,10 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:System.ComponentModel;assembly=System"
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Обработка продаж" Height="450" Width="1000">
+    <Window.Resources>
+        <my:BackgroundWorker 
+            x:Key="backgroundWoker1"
+            DoWork="backgroundWorker1_DoWork">            
+        </my:BackgroundWorker>
+        <my:BackgroundWorker 
+            x:Key="backgroundWoker2"
+            
+            >
+        </my:BackgroundWorker>
+    </Window.Resources>
+    
     <Grid x:Name="grid_update_sales">
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49" />
@@ -38,7 +51,7 @@
         <DatePicker x:Name="date_end" Grid.Row="2" Grid.Column="2" materialDesign:HintAssist.Hint="Конец периода" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Times New Roman" FontSize="18" Height="39" Margin="0,10,0,0"/>
 
         <Button x:Name="btn_check_sales" Grid.Row="3" Grid.Column="0" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto" Content="Проверка" Click="btn_check_sales_Click"/>
-        <Button x:Name="btn_obrabotka" Grid.Row="3" Grid.Column="1" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto" Content="Обработать" ToolTip="Обработка продаж!Отправка данных из UNITY в NEFCO" Click="btn_obrabotka_Click" />
+        <Button x:Name="btn_obrabotka" Grid.Row="3" Grid.Column="1" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto" Content="Обработать" ToolTip="Обработка продаж! Отправка данных из UNITY в NEFCO" Click="btn_obrabotka_Click" />
         <Button x:Name="btn_pereobr" Grid.Row="3" Grid.Column="2" Margin="5" FontFamily="Times New Roman" FontSize="16" Height="Auto" Content="Переобработать" ToolTip="Пометка данных на удаление в NEFCO! Обработка продаж!" Click="btn_pereobr_Click"/>
 
         <Canvas x:Name="update_UNITY_sales" Grid.Row="4" Grid.Column="0">
