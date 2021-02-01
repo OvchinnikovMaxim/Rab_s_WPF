@@ -50,7 +50,7 @@
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый атрибут для материалов" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_del_ost" Grid.Row="1" Grid.Column="2" Margin="3" Height="Auto">
+        <Button x:Name="btn_del_ost" Grid.Row="1" Grid.Column="2" Margin="3" Height="Auto" Click="btn_del_ost_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Удаление остатков" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
