@@ -73,7 +73,26 @@ namespace rab_stol.forms_for_workSQL
 
         private void btn_copyTT_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                int sectorFrom = Convert.ToInt32(sectorID_out.Text);
+                int sectorTo = Convert.ToInt32(sectorID_in.Text);
+                int contractorFrom = Convert.ToInt32(distrID_out.Text);
+                int contractorTo = Convert.ToInt32(distrID_in.Text);
 
+                SqlCommand copyTT = new SqlCommand(q.copyTT_distr_sector(sectorFrom, sectorTo, contractorFrom, contractorTo), connection);
+                copyTT.ExecuteNonQuery();
+
+                MessageBox.Show("Копирование завершено", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
