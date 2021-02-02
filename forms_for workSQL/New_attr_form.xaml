@@ -4,9 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
-        mc:Ignorable="d"
-        Title="New_attr_form" Height="450" Width="800">
+        mc:Ignorable="d"        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Новый атрибут для материалов" Height="204.894" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition Height="71" MinHeight="71"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
+
+        <TextBox x:Name="attr_name" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Название атрибута" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5"/>
+        <StackPanel x:Name="attr_type_info" Grid.Row="1" Grid.Column="1">
+            <Label x:Name="label_attr_type" Content="Тип атрибута" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
+            <ComboBox x:Name="combo_attr_type" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Категория"/>
+                <Label Content="Бренд"/>
+                <Label Content="Серия"/>
+                <Label Content="Назначение"/>
+                <Label Content="Аромат/направление"/>
+                <Label Content="Бренд конкурента"/>
+                <Label Content="Тип упаковки"/>
+                <Label Content="Серия конкурента"/>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel x:Name="zavod_info" Grid.Row="1" Grid.Column="2">
+            <Label x:Name="label_zavod" Content="Завод" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
+            <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="НК"/>
+                <Label Content="КЖК, НБП"/>
+            </ComboBox>
+        </StackPanel>
+
+        <Button x:Name="btn_new_attr" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="btn_new_attr_Click" Content="Добавить атрибут"/>
     </Grid>
 </Window>
