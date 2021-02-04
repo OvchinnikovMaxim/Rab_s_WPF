@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
-        mc:Ignorable="d"
-        Title="New_distr_form" Height="450" Width="800">
+        mc:Ignorable="d"        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Учетные данные для нового дистрибьютора" Height="298" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition Height="71" MinHeight="71"/>
+            <RowDefinition Height="71" MinHeight="71" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0"  materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
+
+        <TextBox x:Name="contractor_id" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="text_server_PreviewTextInput"/>
+        <StackPanel x:Name="zavod_info" Grid.Row="1" Grid.Column="1">
+            <Label x:Name="label_zavod" Content="Завод" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
+            <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="НК"/>
+                <Label Content="КЖК, НБП"/>
+            </ComboBox>
+        </StackPanel>
+        <CheckBox x:Name="integration" Grid.Row="1" Grid.Column="2" IsChecked="True" Content="Модуль интеграции" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center"/>
+
+        <TextBox x:Name="distr_login" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+        <TextBox x:Name="distr_pass" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+        <CheckBox x:Name="mobile" Grid.Row="2" Grid.Column="2" Content="Мобильная торговля" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center"/>
+
+        <Button x:Name="btn_new_distr" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Content="Создать учетные данные" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_new_distr_Click" Margin="5"/>
     </Grid>
 </Window>
