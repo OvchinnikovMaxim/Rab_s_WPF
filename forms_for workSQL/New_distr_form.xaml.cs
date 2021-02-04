@@ -87,6 +87,25 @@ namespace rab_stol.forms_for_workSQL
             }
         }
 
+        private void mobile_Click(object sender, RoutedEventArgs e)
+        {
+            if (integration.IsChecked == false)
+            {
+                integration.IsChecked = true;
+            }            
+        }
 
+        private void integration_Click(object sender, RoutedEventArgs e)
+        {
+            if (integration.IsChecked == false)
+            {
+                mobile.IsChecked = false;
+            }
+        }
+
+        private void combo_zavod_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            distr_login.Text = combo_zavod.SelectedIndex == 0 ? "distr" : "kdistr";
+        }
     }
 }
