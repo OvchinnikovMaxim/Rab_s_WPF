@@ -24,7 +24,7 @@
         <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0"  materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
 
-        <TextBox x:Name="contractor_id" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="text_server_PreviewTextInput"/>
+        <TextBox x:Name="contractor_id" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="contractor_id_PreviewTextInput"/>
         <StackPanel x:Name="zavod_info" Grid.Row="1" Grid.Column="1">
             <Label x:Name="label_zavod" Content="Завод" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
             <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
