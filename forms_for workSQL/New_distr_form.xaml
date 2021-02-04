@@ -27,16 +27,16 @@
         <TextBox x:Name="contractor_id" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код дистрибьютора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="contractor_id_PreviewTextInput"/>
         <StackPanel x:Name="zavod_info" Grid.Row="1" Grid.Column="1">
             <Label x:Name="label_zavod" Content="Завод" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
-            <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+            <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center" SelectionChanged="combo_zavod_SelectionChanged">
                 <Label Content="НК"/>
                 <Label Content="КЖК, НБП"/>
             </ComboBox>
         </StackPanel>
-        <CheckBox x:Name="integration" Grid.Row="1" Grid.Column="2" IsChecked="True" Content="Модуль интеграции" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="integration" Grid.Row="1" Grid.Column="2" IsChecked="True" Content="Модуль интеграции" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center" Click="integration_Click"/>
 
         <TextBox x:Name="distr_login" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
         <TextBox x:Name="distr_pass" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
-        <CheckBox x:Name="mobile" Grid.Row="2" Grid.Column="2" Content="Мобильная торговля" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="mobile" Grid.Row="2" Grid.Column="2" Content="Мобильная торговля" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center" Click="mobile_Click"/>
 
         <Button x:Name="btn_new_distr" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Content="Создать учетные данные" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_new_distr_Click" Margin="5"/>
     </Grid>
