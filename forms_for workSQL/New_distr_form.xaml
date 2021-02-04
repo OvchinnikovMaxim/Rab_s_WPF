@@ -35,7 +35,7 @@
         <CheckBox x:Name="integration" Grid.Row="1" Grid.Column="2" IsChecked="True" Content="Модуль интеграции" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center" Click="integration_Click"/>
 
         <TextBox x:Name="distr_login" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
-        <TextBox x:Name="distr_pass" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+        <TextBox x:Name="distr_pass" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" MaxLength="8"/>
         <CheckBox x:Name="mobile" Grid.Row="2" Grid.Column="2" Content="Мобильная торговля" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center" Click="mobile_Click"/>
 
         <Button x:Name="btn_new_distr" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Content="Создать учетные данные" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_new_distr_Click" Margin="5"/>
