@@ -5,8 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
-        Title="New_tek_form" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Новая транспортная компания" Height="735" Width="1225">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition Height="480" MinHeight="480"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="331" MinWidth="331"/>
+            <ColumnDefinition Width="359" MinWidth="359"/>
+            <ColumnDefinition Width="302" MinWidth="302"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0"  materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
+
+        <GroupBox x:Name="transp_info" Grid.Row="1" Grid.Column="0" Header="Транспортная компания" Margin="3">
+            <StackPanel VerticalAlignment="Center">
+                <TextBox x:Name="name_tek" materialDesign:HintAssist.Hint="Наименование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" Foreground="Red"/>
+                <TextBox x:Name="addres_tek" materialDesign:HintAssist.Hint="Юридический адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <TextBox x:Name="inn_tek" materialDesign:HintAssist.Hint="ИНН" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <TextBox x:Name="kpp_tek" materialDesign:HintAssist.Hint="КПП" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <TextBox x:Name="dogovor_tek" materialDesign:HintAssist.Hint="Номер договора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <DatePicker x:Name="date_dogovor" materialDesign:HintAssist.Hint="Дата договора" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" />
+                <StackPanel x:Name="zavod_info" Grid.Row="1" Grid.Column="1" Margin="5">
+                    <Label x:Name="label_zavod" Content="Завод" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
+                    <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center" SelectionChanged="combo_zavod_SelectionChanged">
+                        <Label Content="НК"/>
+                        <Label Content="КЖК, НБП"/>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox x:Name="bank_info" Grid.Row="1" Grid.Column="1" Header="Реквизиты банка" Margin="3">
+            <StackPanel VerticalAlignment="Center">
+                <TextBox x:Name="name_bank" materialDesign:HintAssist.Hint="Наименование банка" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20" />
+                <TextBox x:Name="rasch_bank" materialDesign:HintAssist.Hint="Расчётный счёт" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20"/>
+                <TextBox x:Name="cor_bank" materialDesign:HintAssist.Hint="Корреспондентский счёт" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20"/>
+                <TextBox x:Name="bik_bank" materialDesign:HintAssist.Hint="БИК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox x:Name="login_pass" Grid.Row="1" Grid.Column="2" Header="Учетные данные" Margin="3">
+            <StackPanel VerticalAlignment="Center">
+                <TextBox x:Name="login" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20" />
+                <TextBox x:Name="password" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20"/>
+                <TextBox x:Name="userID" materialDesign:HintAssist.Hint="Код сотрудника добавивщего ТЭК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" Foreground="Red" PreviewTextInput="userID_PreviewTextInput"/>
+            </StackPanel>
+        </GroupBox>
+
+        <DataGrid x:Name="dataGR" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
+            <Button x:Name="btn_new_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_new_tek_Click" Margin="5">
+                <Button.Content>
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Добавить транспортную компанию" />
+                </Button.Content>
+            </Button>
+            <Button x:Name="btn_info_new_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_info_new_tek_Click" Margin="5">
+                <Button.Content>
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Инструкция по заведению ТЭК" />
+                </Button.Content>
+            </Button>
+            <Button x:Name="btn_edit_pass_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_edit_pass_tek_Click" Margin="5" Content="Изменение пароля"/>
+            <TextBlock  x:Name="auction_act" TextWrapping="Wrap" TextAlignment="Center" Margin="5" FontFamily="Times New Roman" FontSize="18" Text="Создать акт приема-передачи" Style="{StaticResource MaterialDesignButtonTextBlock}" Hyperlink.Click="auction_act_Click" TextDecorations="Underline" Foreground="Blue"/>
+            
+            <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
+            <TextBox x:Name="search_tek" materialDesign:HintAssist.Hint="Поиск транспортной" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btn_search_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_search_tek_Click" Margin="5" Content="Поиск ТЭК"/>
+
+            <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
+            <TextBox x:Name="search_user" materialDesign:HintAssist.Hint="Поиск сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btn_search_user" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_search_user_Click" Margin="5" Content="Поиск сотрудника"/>
+
+        </StackPanel>
     </Grid>
 </Window>
