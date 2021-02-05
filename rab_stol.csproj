@@ -74,6 +74,9 @@
     <Compile Include="forms_for workSQL\CopyTT_form.xaml.cs">
       <DependentUpon>CopyTT_form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms_for workSQL\Create_tek_info.xaml.cs">
+      <DependentUpon>Create_tek_info.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms_for workSQL\DelZAKAZ_in_ZAKAZHAT_form.xaml.cs">
       <DependentUpon>DelZAKAZ_in_ZAKAZHAT_form.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="forms_for workSQL\CopyTT_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\Create_tek_info.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
