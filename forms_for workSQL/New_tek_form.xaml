@@ -34,7 +34,7 @@
                 <DatePicker x:Name="date_dogovor" materialDesign:HintAssist.Hint="Дата договора" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" />
                 <StackPanel x:Name="zavod_info" Grid.Row="1" Grid.Column="1" Margin="5">
                     <Label x:Name="label_zavod" Content="Завод" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
-                    <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center" SelectionChanged="combo_zavod_SelectionChanged">
+                    <ComboBox x:Name="combo_zavod" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
                         <Label Content="НК"/>
                         <Label Content="КЖК, НБП"/>
                     </ComboBox>
