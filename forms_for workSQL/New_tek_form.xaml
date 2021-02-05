@@ -73,14 +73,16 @@
                 </Button.Content>
             </Button>
             <Button x:Name="btn_edit_pass_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_edit_pass_tek_Click" Margin="5" Content="Изменение пароля"/>
-            <TextBlock  x:Name="auction_act" TextWrapping="Wrap" TextAlignment="Center" Margin="5" FontFamily="Times New Roman" FontSize="18" Text="Создать акт приема-передачи" Style="{StaticResource MaterialDesignButtonTextBlock}" Hyperlink.Click="auction_act_Click" TextDecorations="Underline" Foreground="Blue"/>
+            <TextBlock  x:Name="auction_act" TextWrapping="Wrap" TextAlignment="Center" Margin="5" FontFamily="Times New Roman" FontSize="18"  Style="{StaticResource MaterialDesignButtonTextBlock}" Foreground="Blue">
+                <Hyperlink Click="auction_act_Click">Создать акт приема-передачи</Hyperlink>
+            </TextBlock>
             
             <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
-            <TextBox x:Name="search_tek" materialDesign:HintAssist.Hint="Поиск транспортной" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="search_tek" materialDesign:HintAssist.Hint="Транспортная" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
             <Button x:Name="btn_search_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_search_tek_Click" Margin="5" Content="Поиск ТЭК"/>
 
             <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
-            <TextBox x:Name="search_user" materialDesign:HintAssist.Hint="Поиск сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="search_user" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
             <Button x:Name="btn_search_user" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_search_user_Click" Margin="5" Content="Поиск сотрудника"/>
 
         </StackPanel>
