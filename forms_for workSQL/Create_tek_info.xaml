@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
-        Title="Create_tek_info" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Инструкция по заведению транспортной компании" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock x:Name="info_text" FontSize="18" FontFamily="Times New Roman" TextWrapping="Wrap" Text="заполнить" Margin="0,3,0,0"/>
     </Grid>
 </Window>
