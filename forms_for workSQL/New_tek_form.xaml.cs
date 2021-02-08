@@ -38,6 +38,11 @@ namespace rab_stol.forms_for_workSQL
             InitializeComponent();
 
             combo_zavod.SelectedIndex = 0;
+            date_dogovor.SelectedDate = DateTime.Now;
+            link_auction_act.ToolTip= "Имя пользователя: ssrs\\administrator\r\n" +
+                                          "Пароль: Byrke5l8byu\r\n" +
+                                          "tk contractor - код новой ТЭК\r\n" +
+                                          "ReportParameter3 = 1";
         }
 
         #region подключение
@@ -171,6 +176,16 @@ namespace rab_stol.forms_for_workSQL
         private void auction_act_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("http://192.168.2.71/NefcoReports/Pages/Report.aspx?ItemPath=%2fauction_login_act");
+        }
+
+        private void userID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            userID.Foreground = Brushes.Green;
+        }
+
+        private void name_tek_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            name_tek.Foreground = Brushes.Green;
         }
     }
 }
