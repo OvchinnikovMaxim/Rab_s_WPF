@@ -26,7 +26,7 @@
 
         <GroupBox x:Name="transp_info" Grid.Row="1" Grid.Column="0" Header="Транспортная компания" Margin="3">
             <StackPanel VerticalAlignment="Center">
-                <TextBox x:Name="name_tek" materialDesign:HintAssist.Hint="Наименование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" Foreground="Red"/>
+                <TextBox x:Name="name_tek" materialDesign:HintAssist.Hint="Наименование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" Foreground="Red" TextChanged="name_tek_TextChanged"/>
                 <TextBox x:Name="addres_tek" materialDesign:HintAssist.Hint="Юридический адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
                 <TextBox x:Name="inn_tek" materialDesign:HintAssist.Hint="ИНН" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
                 <TextBox x:Name="kpp_tek" materialDesign:HintAssist.Hint="КПП" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
@@ -55,7 +55,7 @@
             <StackPanel VerticalAlignment="Center">
                 <TextBox x:Name="login" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20" />
                 <TextBox x:Name="password" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20"/>
-                <TextBox x:Name="userID" materialDesign:HintAssist.Hint="Код сотрудника добавивщего ТЭК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" Foreground="Red" PreviewTextInput="userID_PreviewTextInput"/>
+                <TextBox x:Name="userID" materialDesign:HintAssist.Hint="Код сотрудника добавивщего ТЭК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" Foreground="Red" PreviewTextInput="userID_PreviewTextInput" TextChanged="userID_TextChanged" />
             </StackPanel>
         </GroupBox>
 
@@ -74,7 +74,7 @@
             </Button>
             <Button x:Name="btn_edit_pass_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_edit_pass_tek_Click" Margin="5" Content="Изменение пароля"/>
             <TextBlock  x:Name="auction_act" TextWrapping="Wrap" TextAlignment="Center" Margin="5" FontFamily="Times New Roman" FontSize="18"  Style="{StaticResource MaterialDesignButtonTextBlock}" Foreground="Blue">
-                <Hyperlink Click="auction_act_Click">Создать акт приема-передачи</Hyperlink>
+                <Hyperlink x:Name="link_auction_act" Click="auction_act_Click">Создать акт приема-передачи</Hyperlink>
             </TextBlock>
             
             <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
