@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Новый пароль для транспортной" Height="165" Width="800">
+        Title="Новый пароль для транспортной" Height="145" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>
