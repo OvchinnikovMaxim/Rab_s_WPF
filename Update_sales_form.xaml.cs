@@ -19,29 +19,34 @@ namespace rab_stol
     {
         SqlConnection connection;
 
-        Query q = new Query();
+        readonly Query q = new Query();
 
-        Serv_conn sc = new Serv_conn();
+        readonly Serv_conn sc = new Serv_conn();
 
-        DateTime date = new DateTime(0, 0);
+        DateTime date1 = new DateTime(0, 0);
 
-        System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+        //System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+        System.Timers.Timer timer = new System.Timers.Timer();
 
         BackgroundWorker bw1 = new BackgroundWorker();
-        BackgroundWorker bw2 = new BackgroundWorker();
+        private readonly BackgroundWorker backgroundWorker2 = new BackgroundWorker();
 
-        private readonly BackgroundWorker worker = new BackgroundWorker();
 
         public Update_sales_form()
         {
             InitializeComponent();
 
-            timer.Tick += new EventHandler(timerTick);
-            timer.Interval = new TimeSpan(0, 0, 1);
+            date_begin.SelectedDate = DateTime.Now;
+            date_end.SelectedDate = DateTime.Now;
 
-            worker.DoWork += worker_DoWork;
+            timer.Interval = 1000;
+            //timer.Tick += new EventHandler(timerTick);
+            //timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Elapsed += timerTick;
+            // worker.DoWork += worker_DoWork;
             //bw1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
-            //bw2.DoWork += new DoWorkEventHandler(backgroundWorker2_DoWork);
+            backgroundWorker2.DoWork += backgroundWorker2_DoWork;
+            backgroundWorker2.RunWorkerCompleted += backgroundWorker2_RunWorkerCompleted;
         }
 
         #region подключение
@@ -127,25 +132,24 @@ namespace rab_stol
             }
         }
 
-        private void btn_obrabotka_Click(object sender, RoutedEventArgs e)
+        private  void btn_obrabotka_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            date = new DateTime(0, 0);
-            check_blocking.Visibility = Visibility.Hidden;
-            label_time.Content = "00:00";
-            //timer.IsEnabled = true;
-
             
-            if (bw2.IsBusy != true)
+            try
             {
-                //bw2.RunWorkerAsync();
-            }
-            //worker.RunWorkerAsync();
+                
+                    date1 = new DateTime(0, 0);
+                check_blocking.Visibility = Visibility.Hidden;
+                label_time.Content = "00:00";
+                
+                //timer.Enabled = true;
+                timer.Start();
+                    //timer.IsEnabled = true;
+                    //label_time.Content = "00:01";
 
-            Thread thread = new Thread(backgroundWorker2_DoWork);
-            thread.Start();
-            /*}
+                
+                backgroundWorker2.RunWorkerAsync();
+            }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -153,8 +157,10 @@ namespace rab_stol
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }*/
+            }
         }
+
+
 
         private void btn_pereobr_Click(object sender, RoutedEventArgs e)
         {
@@ -165,10 +171,10 @@ namespace rab_stol
             {
                 try
                 {
-                    date = new DateTime(0, 0);
+                    date1 = new DateTime(0, 0);
                     check_blocking.Visibility = Visibility.Hidden;
                     label_time.Content = "00:00";
-                    timer.IsEnabled = true;
+                    //timer.IsEnabled = true;
 
                     bw1.RunWorkerAsync();
                 }
@@ -247,11 +253,13 @@ namespace rab_stol
 
         private void timerTick(object sender, EventArgs e)
         {
+            Dispatcher.BeginInvoke(new Action(delegate ()
+            {
+                date1 = date1.AddSeconds(1);
+                //label_time.Content = "00:00";
+                label_time.Content = date1.ToString("mm:ss");
             
-                date = date.AddSeconds(1);
-            label_time.Content = date.ToString("mm:ss");
-
-            if (date.Minute > 1)
+            if (date1.Minute > 1)
             {
                 check_blocking.Visibility = Visibility.Visible;
             }
@@ -259,82 +267,58 @@ namespace rab_stol
             {
                 check_blocking.Visibility = Visibility.Hidden;
             }
-            
+            }), System.Windows.Threading.DispatcherPriority.Normal);
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Dispatcher.BeginInvoke(new ThreadStart(delegate
-            {
+            //btn_pereobr
                 try
                 {
                     reload(Convert.ToInt32(text_distrID.Text), (DateTime)date_begin.SelectedDate, (DateTime)date_end.SelectedDate, connection);
 
-                    timer.IsEnabled = false;
+                    //timer.IsEnabled = false;
 
                     MessageBox.Show("Переобработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (SqlException ex)
                 {
-                    timer.IsEnabled = false;
+                    //timer.IsEnabled = false;
                     MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 catch (Exception ex)
                 {
-                    timer.IsEnabled = false;
+                    //timer.IsEnabled = false;
                     MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            }));
-        }
-
-
-        public  void backgroundWorker2_DoWork(/*object sender, DoWorkEventArgs e*/)
-        {
-            Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, (ThreadStart)delegate ()
-            {
-                try 
-                { 
-                     SqlCommand exec_transfer_docs = new SqlCommand(q.TRANSFER_MT_DOCS_UNITY(Convert.ToInt32(text_distrID.Text), (DateTime)date_begin.SelectedDate, (DateTime)date_end.SelectedDate), connection);
-                        exec_transfer_docs.CommandTimeout = 3600;  exec_transfer_docs.ExecuteNonQuery();
             
-
-                    timer.IsEnabled = false;
-
-                    MessageBox.Show("Обработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (SqlException ex)
-                {
-                    timer.IsEnabled = false;
-                    MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (Exception ex)
-                {
-                    timer.IsEnabled = false;
-                    MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            });
         }
-        private void worker_DoWork(object sender, DoWorkEventArgs e)
+
+
+        public  void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-            try
+            /*btn_obrabotka.*/Dispatcher.BeginInvoke(new Action(delegate ()
             {
-                SqlCommand exec_transfer_docs = new SqlCommand(q.TRANSFER_MT_DOCS_UNITY(Convert.ToInt32(text_distrID.Text), (DateTime)date_begin.SelectedDate, (DateTime)date_end.SelectedDate), connection);
-                exec_transfer_docs.CommandTimeout = 3600; exec_transfer_docs.ExecuteNonQuery();
-
-
-                timer.IsEnabled = false;
+            SqlCommand exec_transfer_docs = new SqlCommand(q.TRANSFER_MT_DOCS_UNITY(Convert.ToInt32(text_distrID.Text), (DateTime)date_begin.SelectedDate, (DateTime)date_end.SelectedDate), connection);
+            
+                
+                        exec_transfer_docs.CommandTimeout = 3600;  
+                exec_transfer_docs.ExecuteNonQuery();
+               // timer.Enabled = false;
+                
+                 timer.Stop();
+                
 
                 MessageBox.Show("Обработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (SqlException ex)
+            }), System.Windows.Threading.DispatcherPriority.ApplicationIdle);
+            
+        }
+        public void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
             {
-                timer.IsEnabled = false;
-                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                timer.IsEnabled = false;
-                MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                // Ошибка была сгенерирована обработчиком события DoWork
+                MessageBox.Show(e.Error.Message, "Произошла ошибка");
             }
         }
     }
