@@ -158,10 +158,7 @@ namespace rab_stol
             {
                 MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            finally
-            {
-                timer.Stop();
-            }
+            
         }
 
 
@@ -191,10 +188,7 @@ namespace rab_stol
                 {
                     MessageBox.Show("Не был указан код дистрибьютора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                finally
-                {
-                    timer.Stop();
-                }
+                
             }
         }
 
