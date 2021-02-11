@@ -46,7 +46,7 @@ namespace rab_stol
             // worker.DoWork += worker_DoWork;
             //bw1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
             backgroundWorker2.DoWork += backgroundWorker2_DoWork;
-            backgroundWorker2.RunWorkerCompleted += backgroundWorker2_RunWorkerCompleted;
+            bw1.DoWork += backgroundWorker1_DoWork;
         }
 
         #region подключение
@@ -158,6 +158,10 @@ namespace rab_stol
             {
                 MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            finally
+            {
+                timer.Stop();
+            }
         }
 
 
@@ -174,6 +178,7 @@ namespace rab_stol
                     date1 = new DateTime(0, 0);
                     check_blocking.Visibility = Visibility.Hidden;
                     label_time.Content = "00:00";
+                    timer.Start();
                     //timer.IsEnabled = true;
 
                     bw1.RunWorkerAsync();
@@ -185,6 +190,10 @@ namespace rab_stol
                 catch (Exception)
                 {
                     MessageBox.Show("Не был указан код дистрибьютора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    timer.Stop();
                 }
             }
         }
@@ -272,7 +281,8 @@ namespace rab_stol
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            //btn_pereobr
+            Dispatcher.BeginInvoke(new Action(delegate ()
+            {
                 try
                 {
                     reload(Convert.ToInt32(text_distrID.Text), (DateTime)date_begin.SelectedDate, (DateTime)date_end.SelectedDate, connection);
@@ -291,7 +301,7 @@ namespace rab_stol
                     //timer.IsEnabled = false;
                     MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            
+            }));
         }
 
 
@@ -310,16 +320,9 @@ namespace rab_stol
                 
 
                 MessageBox.Show("Обработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
-            }), System.Windows.Threading.DispatcherPriority.ApplicationIdle);
+            }));
             
         }
-        public void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                // Ошибка была сгенерирована обработчиком события DoWork
-                MessageBox.Show(e.Error.Message, "Произошла ошибка");
-            }
-        }
+        
     }
 }
