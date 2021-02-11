@@ -91,7 +91,7 @@ namespace rab_stol.forms_for_workSQL
         {
             try
             {
-                adapter = new SqlDataAdapter(q.User_inf(search_tek.Text), connection);
+                adapter = new SqlDataAdapter(q.search_TEK(search_tek.Text), connection);
 
                 dt = new DataTable();
                 adapter.Fill(dt);
