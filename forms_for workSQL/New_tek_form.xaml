@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Новая транспортная компания" Height="735" Width="1225">
+        Title="Новая транспортная компания" Height="735" Width="1425">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>
@@ -17,7 +17,8 @@
             <ColumnDefinition Width="331" MinWidth="331"/>
             <ColumnDefinition Width="359" MinWidth="359"/>
             <ColumnDefinition Width="302" MinWidth="302"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="200" MinWidth="200"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_connect_Click"/>
@@ -59,7 +60,7 @@
             </StackPanel>
         </GroupBox>
 
-        <DataGrid x:Name="dataGR" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False"/>
+        <DataGrid x:Name="dataGR" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Width="Auto" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" />
 
         <StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
             <Button x:Name="btn_new_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_new_tek_Click" Margin="5">
@@ -78,13 +79,28 @@
             </TextBlock>
             
             <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
-            <TextBox x:Name="search_tek" materialDesign:HintAssist.Hint="Транспортная" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="search_tek" materialDesign:HintAssist.Hint="Транспортная" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" />
             <Button x:Name="btn_search_tek" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_search_tek_Click" Margin="5" Content="Поиск ТЭК"/>
 
             <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
             <TextBox x:Name="search_user" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
             <Button x:Name="btn_search_user" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_search_user_Click" Margin="5" Content="Поиск сотрудника"/>
 
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"  >
+            <Label x:Name="label_class" Content="Класс" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
+            <ComboBox x:Name="combo_class" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,10" SelectionChanged="combo_class_SelectionChanged">
+                <Label Content="Транспортная"/>
+                <Label Content="Ж/д оператор"/>
+            </ComboBox>
+            <GroupBox x:Name="group_uslugi" Header="Услуги" HorizontalAlignment="Center" IsEnabled="False" >
+                <StackPanel VerticalAlignment="Center" >
+                    <TextBox x:Name="text_from_railway_trans" materialDesign:HintAssist.Hint="ЖД Оператор откуда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="14" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20" PreviewTextInput="text_from_railway_trans_PreviewTextInput"/>
+                    <TextBox x:Name="text_to_railway_trans" materialDesign:HintAssist.Hint="ЖД Оператор куда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="14" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20" PreviewTextInput="text_to_railway_trans_PreviewTextInput"/>
+                    <Button x:Name="btn_copy_service" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_copy_service_Click" Margin="5" Content="Копирование услуг"/>
+                </StackPanel>                    
+            </GroupBox>
         </StackPanel>
     </Grid>
 </Window>

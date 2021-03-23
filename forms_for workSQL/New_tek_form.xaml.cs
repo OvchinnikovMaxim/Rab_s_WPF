@@ -38,6 +38,7 @@ namespace rab_stol.forms_for_workSQL
             InitializeComponent();
 
             combo_zavod.SelectedIndex = 0;
+            combo_class.SelectedIndex = 0;
             date_dogovor.SelectedDate = DateTime.Now;
             link_auction_act.ToolTip= "Имя пользователя: ssrs\\administrator\r\n" +
                                           "Пароль: Byrke5l8byu\r\n" +
@@ -62,10 +63,22 @@ namespace rab_stol.forms_for_workSQL
         }
         #endregion
 
+        #region только числа
         private void userID_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             sc.TextChisla(e);
         }
+
+        private void text_from_railway_trans_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            sc.TextChisla(e);
+        }
+
+        private void text_to_railway_trans_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            sc.TextChisla(e);
+        } 
+        #endregion
 
         private void btn_search_user_Click(object sender, RoutedEventArgs e)
         {
@@ -130,9 +143,9 @@ namespace rab_stol.forms_for_workSQL
             {
                 try
                 {
-                    int zav;
+                    int zav, clas;
                     zav = combo_zavod.SelectedIndex == 0 ? 1 : 2;
-
+                    clas = combo_class.SelectedIndex == 0 ? 20 : 21;
                     string name = name_tek.Text;
                     string dogovor = dogovor_tek.Text;
                     string address = addres_tek.Text;
@@ -151,7 +164,7 @@ namespace rab_stol.forms_for_workSQL
 
                     if (user == Convert.ToInt32(search_userID.ExecuteScalar()))
                     {
-                        SqlCommand new_TEK = new SqlCommand(q.new_TEK(name, zav, dogovor, address, r_s, bank, k_s, bik, inn, kpp, date_n, pass, log, user), connection);
+                        SqlCommand new_TEK = new SqlCommand(q.new_TEK(name, zav, dogovor, address, r_s, bank, k_s, bik, inn, kpp, date_n, pass, log, user, clas), connection);
                         new_TEK.ExecuteNonQuery();
 
                         MessageBox.Show("Транспортная компания добавлена", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -186,6 +199,47 @@ namespace rab_stol.forms_for_workSQL
         private void name_tek_TextChanged(object sender, TextChangedEventArgs e)
         {
             name_tek.Foreground = Brushes.Green;
+        }
+
+        private void combo_class_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            group_uslugi.IsEnabled = combo_class.SelectedIndex == 1;
+        }
+
+        private void btn_copy_service_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int trans_from = Convert.ToInt32(text_from_railway_trans.Text);
+                int trans_to = Convert.ToInt32(text_to_railway_trans.Text);
+
+                SqlCommand search_trans_from = new SqlCommand("SELECT id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + trans_from, connection);
+                SqlCommand search_trans_to = new SqlCommand("SELECT id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + trans_to, connection);
+
+                string query = @"INSERT INTO nefco.dbo.tc_trip_railway_transpcompany_service(transp_company,service_id)" +
+                "SELECT " + trans_to + ", service_id FROM nefco.dbo.tc_trip_railway_transpcompany_service WHERE transp_company=" + trans_from + ";";
+
+                if (trans_from == Convert.ToInt32(search_trans_from.ExecuteScalar()) && trans_to == Convert.ToInt32(search_trans_to.ExecuteScalar()))
+                {
+                    SqlCommand copy_services = new SqlCommand(query, connection);
+                    copy_services.ExecuteNonQuery();
+
+                    MessageBox.Show("Услуги скопированы", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Одной из кодов не существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
