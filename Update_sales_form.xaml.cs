@@ -2,16 +2,13 @@
 using System;
 using System.ComponentModel;
 using System.Data;
-using Microsoft.Win32;
 using System.Data.SqlClient;
 using System.Windows;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace rab_stol
-{   
+{
     /// <summary>
     /// Логика взаимодействия для Update_sales_form.xaml
     /// </summary>

@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Drawing;
 using System.Data.SqlClient;
-using System.Windows.Input;
-using System.Windows.Media;
-using SQLquerys;
-using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace rab_stol
 {

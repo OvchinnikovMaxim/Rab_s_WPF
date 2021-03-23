@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
+using SQLquerys;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using SQLquerys;
 using System.Windows;
-using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace rab_stol
 {
