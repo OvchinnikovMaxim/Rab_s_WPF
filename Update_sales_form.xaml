@@ -10,13 +10,14 @@
         Title="Обработка продаж" Height="450" Width="1000">
     <Window.Resources>
         <my:BackgroundWorker 
-            x:Key="backgroundWoker1"
-            DoWork="backgroundWorker1_DoWork">            
+            x:Key="backgroundWorker_obr"
+            WorkerReportsProgress="True" WorkerSupportsCancellation="True"
+            DoWork="backgroundWorker_obr_DoWork">            
         </my:BackgroundWorker>
         <my:BackgroundWorker 
-            x:Key="backgroundWoker2"
-            
-            >
+            x:Key="backgroundWorker_pereobr"
+            WorkerReportsProgress="True" WorkerSupportsCancellation="True"
+            DoWork="backgroundWorker_pereobr_DoWork">
         </my:BackgroundWorker>
     </Window.Resources>
     

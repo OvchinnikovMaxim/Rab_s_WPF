@@ -11,7 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace rab_stol
-{
+{   
     /// <summary>
     /// Логика взаимодействия для Update_sales_form.xaml
     /// </summary>
@@ -25,11 +25,11 @@ namespace rab_stol
 
         DateTime date1 = new DateTime(0, 0);
 
-        //System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
-        System.Timers.Timer timer = new System.Timers.Timer();
+        System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+        //System.Timers.Timer timer = new System.Timers.Timer();
 
-        BackgroundWorker bw1 = new BackgroundWorker();
-        private readonly BackgroundWorker backgroundWorker2 = new BackgroundWorker();
+        private BackgroundWorker background_obr = new BackgroundWorker();
+        private BackgroundWorker background_pereobr = new BackgroundWorker();
 
 
         public Update_sales_form()
@@ -39,14 +39,14 @@ namespace rab_stol
             date_begin.SelectedDate = DateTime.Now;
             date_end.SelectedDate = DateTime.Now;
 
-            timer.Interval = 1000;
-            //timer.Tick += new EventHandler(timerTick);
-            //timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Elapsed += timerTick;
-            // worker.DoWork += worker_DoWork;
-            //bw1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
-            backgroundWorker2.DoWork += backgroundWorker2_DoWork;
-            bw1.DoWork += backgroundWorker1_DoWork;
+            //timer.Interval = 1000;
+            //timer.Elapsed += timerTick;
+            timer.Tick += new EventHandler(timerTick);
+            timer.Interval = new TimeSpan(0, 0, 1);
+
+            background_obr.DoWork += backgroundWorker_obr_DoWork;
+            background_pereobr.DoWork += backgroundWorker_pereobr_DoWork;
+
         }
 
         #region подключение
@@ -137,18 +137,13 @@ namespace rab_stol
             
             try
             {
-                
-                    date1 = new DateTime(0, 0);
+
+                date1 = new DateTime(0, 0);
                 check_blocking.Visibility = Visibility.Hidden;
                 label_time.Content = "00:00";
-                
-                //timer.Enabled = true;
                 timer.Start();
-                    //timer.IsEnabled = true;
-                    //label_time.Content = "00:01";
-
-                
-                backgroundWorker2.RunWorkerAsync();
+               
+                background_obr.RunWorkerAsync();
             }
             catch (SqlException ex)
             {
@@ -157,11 +152,8 @@ namespace rab_stol
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            
+            }            
         }
-
-
 
         private void btn_pereobr_Click(object sender, RoutedEventArgs e)
         {
@@ -178,7 +170,7 @@ namespace rab_stol
                     timer.Start();
                     //timer.IsEnabled = true;
 
-                    bw1.RunWorkerAsync();
+                    background_pereobr.RunWorkerAsync();
                 }
                 catch (SqlException ex)
                 {
@@ -187,8 +179,7 @@ namespace rab_stol
                 catch (Exception)
                 {
                     MessageBox.Show("Не был указан код дистрибьютора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                
+                }                
             }
         }
 
@@ -256,11 +247,9 @@ namespace rab_stol
 
         private void timerTick(object sender, EventArgs e)
         {
-            Dispatcher.BeginInvoke(new Action(delegate ()
-            {
-                date1 = date1.AddSeconds(1);
-                //label_time.Content = "00:00";
-                label_time.Content = date1.ToString("mm:ss");
+            
+            date1 = date1.AddSeconds(1);
+            label_time.Content = date1.ToString("mm:ss");
             
             if (date1.Minute > 1)
             {
@@ -270,53 +259,38 @@ namespace rab_stol
             {
                 check_blocking.Visibility = Visibility.Hidden;
             }
-            }), System.Windows.Threading.DispatcherPriority.Normal);
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorker_obr_DoWork(object sender, DoWorkEventArgs e)
         {
-            Dispatcher.BeginInvoke(new Action(delegate ()
-            {
-                try
-                {
-                    reload(Convert.ToInt32(text_distrID.Text), (DateTime)date_begin.SelectedDate, (DateTime)date_end.SelectedDate, connection);
 
-                    //timer.IsEnabled = false;
+            int contrID = Dispatcher.Invoke(() => contrID = Convert.ToInt32(text_distrID.Text));
+            DateTime date_b = Dispatcher.Invoke(() => date_b = (DateTime)date_begin.SelectedDate);
+            DateTime date_e = Dispatcher.Invoke(() => date_e = (DateTime)date_end.SelectedDate);
+            SqlConnection сonn = Dispatcher.Invoke(() => сonn = connection);
 
-                    MessageBox.Show("Переобработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (SqlException ex)
-                {
-                    //timer.IsEnabled = false;
-                    MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (Exception ex)
-                {
-                    //timer.IsEnabled = false;
-                    MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }));
+            SqlCommand exec_transfer_docs = new SqlCommand(q.TRANSFER_MT_DOCS_UNITY(contrID, date_b, date_e), сonn);
+
+            exec_transfer_docs.CommandTimeout = 3600;
+            exec_transfer_docs.ExecuteNonQuery();
+            
+            timer.Stop();
+
+            MessageBox.Show("Обработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-
-        public  void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorker_pereobr_DoWork(object sender, DoWorkEventArgs e)
         {
-            /*btn_obrabotka.*/Dispatcher.BeginInvoke(new Action(delegate ()
-            {
-            SqlCommand exec_transfer_docs = new SqlCommand(q.TRANSFER_MT_DOCS_UNITY(Convert.ToInt32(text_distrID.Text), (DateTime)date_begin.SelectedDate, (DateTime)date_end.SelectedDate), connection);
-            
-                
-                        exec_transfer_docs.CommandTimeout = 3600;  
-                exec_transfer_docs.ExecuteNonQuery();
-               // timer.Enabled = false;
-                
-                 timer.Stop();
-                
+            int contrID = Dispatcher.Invoke(() => contrID = Convert.ToInt32(text_distrID.Text));
+            DateTime date_b = Dispatcher.Invoke(() => date_b = (DateTime)date_begin.SelectedDate);
+            DateTime date_e = Dispatcher.Invoke(() => date_e = (DateTime)date_end.SelectedDate);
+            SqlConnection сonn = Dispatcher.Invoke(() => сonn = connection);
 
-                MessageBox.Show("Обработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
-            }));
-            
+            reload(contrID, date_b, date_e, сonn);
+
+            timer.Stop();
+
+            MessageBox.Show("Переобработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        
     }
 }
