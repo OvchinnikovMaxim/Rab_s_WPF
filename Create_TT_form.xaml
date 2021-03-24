@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Заведение клиентских карточек" Height="450" Width="800" Closing="create_tt_form_Closing">
+        Title="Заведение клиентских карточек" Height="450" Width="800" Closing="create_tt_form_Closing" Icon="plus.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>

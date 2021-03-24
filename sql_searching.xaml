@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Поиск по базе" Height="552" Width="1000">
+        Title="Поиск по базе" Height="552" Width="1000" Icon="recherche.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="368*"/>

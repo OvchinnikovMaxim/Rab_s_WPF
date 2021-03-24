@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         x:Name="MainForm"
-        Title="Рабочий стол Максима 1.0" Height="600" Width="1000">
+        Title="Рабочий стол 1.0" Height="600" Width="1000" Icon="1.ico">
 
     <Grid x:Name="Mainroot" >
         <Grid.RowDefinitions>
