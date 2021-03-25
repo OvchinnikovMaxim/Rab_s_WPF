@@ -57,7 +57,7 @@ namespace rab_stol.forms_for_workSQL
                 SqlCommand new_user_inf = new SqlCommand(q.user_inf_new(text_login.Text, text_fio.Text, text_pass.Text, zav), connection);
                 new_user_inf.ExecuteNonQuery();
 
-                MessageBox.Show("Новый сотрудник добавлен в базу данных", "Результат", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Новый сотрудник добавлен в базу данных", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
             catch (SqlException ex)
