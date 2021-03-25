@@ -162,7 +162,7 @@ namespace rab_stol
                 try
                 {
                     date1 = new DateTime(0, 0);
-                    check_blocking.Visibility = Visibility.Hidden;
+                    
                     label_time.Content = "00:00";
                     timer.Start();
                     //timer.IsEnabled = true;
@@ -274,6 +274,7 @@ namespace rab_stol
             timer.Stop();
 
             MessageBox.Show("Обработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+            check_blocking.Visibility = Visibility.Hidden;
         }
 
         private void backgroundWorker_pereobr_DoWork(object sender, DoWorkEventArgs e)
@@ -288,6 +289,7 @@ namespace rab_stol
             timer.Stop();
 
             MessageBox.Show("Переобработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+            check_blocking.Visibility = Visibility.Hidden;
         }
 
         private void btn_period_Click(object sender, RoutedEventArgs e)
