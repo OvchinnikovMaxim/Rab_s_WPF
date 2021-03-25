@@ -289,5 +289,11 @@ namespace rab_stol
 
             MessageBox.Show("Переобработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void btn_period_Click(object sender, RoutedEventArgs e)
+        {
+            forms_for_workSQL.About_obr about_Obr = new forms_for_workSQL.About_obr();
+            about_Obr.Show();
+        }
     }
 }
