@@ -111,6 +111,7 @@
     <Compile Include="forms_for workSQL\New_user_inf_form.xaml.cs">
       <DependentUpon>New_user_inf_form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OtherSQLquery.cs" />
     <Compile Include="Serv_conn.cs" />
     <Compile Include="sql_searching.xaml.cs">
       <DependentUpon>sql_searching.xaml</DependentUpon>
