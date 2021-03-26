@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Удаление заказа в ZAKAZ_HAT" Height="500" Width="800">
+        Title="Удаление/Восстановление заказа в ZAKAZ_HAT" Height="500" Width="800">
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>

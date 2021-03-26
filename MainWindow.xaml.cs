@@ -120,7 +120,7 @@ namespace rab_stol
             text_btn_work_sql.Text += '\n' + "*" + "Новая транспортная";
             text_btn_work_sql.Text += '\n' + "*" + "Новый пользователь программ на делфи";
             text_btn_work_sql.Text += '\n' + "*" + "Копирование ТТ с сектора на сектор";
-            text_btn_work_sql.Text += '\n' + "*" + "Удаление заказа в ZAKAZ_HAT";
+            text_btn_work_sql.Text += '\n' + "*" + "Удаление/Восстановление заказа в ZAKAZ_HAT";
             text_btn_work_sql.Text += '\n' + "*" + "Новый атрибут для материалов";
             text_btn_work_sql.Text += '\n' + "*" + "Удаление остатков";
             text_btn_work_sql.Text += '\n' + "*" + "Новый класс прайс-листа";
