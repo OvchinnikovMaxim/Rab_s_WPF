@@ -20,8 +20,6 @@ namespace rab_stol
             @"DECLARE @order_id INT;
             SET @order_id = " + number + @";
 
-            BEGIN TRAN --начало изменения
-
             SET IDENTITY_INSERT[nefco].[dbo].[zakaz_hat] ON
 
             INSERT INTO[nefco].[dbo].[zakaz_hat]
@@ -159,9 +157,6 @@ namespace rab_stol
             WHERE id = @order_id;
 
             SET IDENTITY_INSERT[nefco].[dbo].[zakaz_hat] OFF
-
-            ROLLBACK TRAN--откат изменения
-            COMMIT TRAN --подтверждение изменения
 
             INSERT INTO[nefco].[dbo].[order_control_logs] VALUES('admin', @order_id, '', 1, GETDATE(), '" + comment + "');";
 
