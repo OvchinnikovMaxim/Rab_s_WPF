@@ -248,7 +248,7 @@ namespace rab_stol
             date1 = date1.AddSeconds(1);
             label_time.Content = date1.ToString("mm:ss");
             
-            if (date1.Minute > 1)
+            if (date1.Minute >= 1)
             {
                 check_blocking.Visibility = Visibility.Visible;
             }
@@ -274,7 +274,7 @@ namespace rab_stol
             timer.Stop();
 
             MessageBox.Show("Обработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
-            check_blocking.Visibility = Visibility.Hidden;
+            //check_blocking.Visibility = Visibility.Hidden;
         }
 
         private void backgroundWorker_pereobr_DoWork(object sender, DoWorkEventArgs e)
@@ -289,7 +289,7 @@ namespace rab_stol
             timer.Stop();
 
             MessageBox.Show("Переобработка продаж завершена, проверьте продажи", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
-            check_blocking.Visibility = Visibility.Hidden;
+            //check_blocking.Visibility = Visibility.Hidden;
         }
 
         private void btn_period_Click(object sender, RoutedEventArgs e)
