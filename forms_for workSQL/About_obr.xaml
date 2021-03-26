@@ -8,6 +8,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Справка о периоде и обработке" Height="450" Width="800">
     <Grid>
-        
+        <ScrollViewer>
+            <TextBlock x:Name="info_text_period" FontSize="18" FontFamily="Times New Roman" TextWrapping="Wrap" Text="заполнить" Margin="3,3,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        </ScrollViewer>
     </Grid>
 </Window>
