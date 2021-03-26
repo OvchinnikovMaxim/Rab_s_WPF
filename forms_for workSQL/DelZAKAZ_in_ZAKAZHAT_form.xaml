@@ -6,14 +6,18 @@
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Удаление заказа в ZAKAZ_HAT" Height="277.5" Width="800">
+        Title="Удаление заказа в ZAKAZ_HAT" Height="500" Width="800">
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>
             <RowDefinition Height="71" MinHeight="71"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="71" MinHeight="71"/>
+            <RowDefinition Height="90"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -23,10 +27,20 @@
         <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
 
-        <TextBox x:Name="text_zakazID" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код заказа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="text_zakazID_PreviewTextInput"/>
-        <Button x:Name="btn_del_zakaz" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="btn_del_zakaz_Click" Content="Удалить заказ"/>
+        <CheckBox x:Name="check_del_zakaz" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Content="Удалить заказ" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center" />
+        <TextBox x:Name="text_zakazID" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код заказа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="text_zakazID_PreviewTextInput" IsEnabled="False"/>
+        <Button x:Name="btn_del_zakaz" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="btn_del_zakaz_Click" Content="Удалить заказ" IsEnabled="False"/>
 
-        <TextBox x:Name="comment" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap" TextAlignment="Justify" materialDesign:HintAssist.Hint="Комментарий" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="20"    HorizontalContentAlignment="Center" Margin="5" 
-                 Text="Заказ вручную удален из базы данных. Пользователь: Овчинников М. По обращению: Соколов Д. Причина: Задублировалась при выгрузке из 1С."/>
+        <TextBox x:Name="comment" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap" TextAlignment="Left" materialDesign:HintAssist.Hint="Комментарий" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="20"    HorizontalContentAlignment="Center" Margin="5" 
+                 Text="Заказ удален. Пользователь: Овчинников М. По обращению от. Причина: ." IsEnabled="False"/>
+
+        <CheckBox x:Name="check_rec_zakaz" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Content="Восстановить заказ" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center" />
+        <TextBox x:Name="rec_text_zakazID" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="Код заказа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="text_zakazID_PreviewTextInput" IsEnabled="False"/>
+        <Button x:Name="btn_rec_zakaz" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Content="Восстановить заказ" IsEnabled="False"/>
+
+        <TextBox x:Name="rec_comment" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap" TextAlignment="Left" materialDesign:HintAssist.Hint="Комментарий" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="20"    HorizontalContentAlignment="Center" Margin="5" 
+                 Text="Заказ восстановлен. Пользователь: Овчинников М. По обращению от . Причина: ." IsEnabled="False"/>
+
+        <DataGrid x:Name="display_rec" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" Height="Auto" Width="Auto" Margin="5,0,0,0"/>
     </Grid>
 </Window>
