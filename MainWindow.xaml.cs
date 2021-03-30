@@ -117,7 +117,7 @@ namespace rab_stol
             this.btn_work_sql.RenderTransform = rt;
 
             text_btn_work_sql.Text = "*" + "Новый дистрибьютор";
-            text_btn_work_sql.Text += '\n' + "*" + "Новая транспортная";
+            text_btn_work_sql.Text += '\n' + "*" + "Добавление/изменение транспортной";
             text_btn_work_sql.Text += '\n' + "*" + "Новый пользователь программ на делфи";
             text_btn_work_sql.Text += '\n' + "*" + "Копирование ТТ с сектора на сектор";
             text_btn_work_sql.Text += '\n' + "*" + "Удаление/Восстановление заказа в ZAKAZ_HAT";

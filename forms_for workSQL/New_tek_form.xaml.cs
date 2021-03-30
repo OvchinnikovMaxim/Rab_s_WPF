@@ -19,7 +19,7 @@ namespace rab_stol.forms_for_workSQL
 
         readonly Query q = new Query();
 
-        readonly Serv_conn sc = new Serv_conn();
+        Serv_conn sc = new Serv_conn();
 
         DataTable dt;
 

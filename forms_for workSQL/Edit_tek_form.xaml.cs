@@ -152,7 +152,7 @@ namespace rab_stol.forms_for_workSQL
 
                 if (user == Convert.ToInt32(search_userID.ExecuteScalar()))
                 {
-                    SqlCommand new_TEK = new SqlCommand(otherQuery.Edit_tek(IDtek,name,dogovor,address,r_s,bank,k_s,bik,inn,kpp,date_n,user), connection);
+                    SqlCommand new_TEK = new SqlCommand(otherQuery.Edit_tek(IDtek, name, dogovor, address, r_s, bank, k_s, bik, inn, kpp, date_n, user), connection);
                     new_TEK.ExecuteNonQuery();
 
                     MessageBox.Show("Транспортная компания изменена", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
