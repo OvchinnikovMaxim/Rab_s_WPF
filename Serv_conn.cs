@@ -38,13 +38,7 @@ namespace rab_stol
         }
 
         public void TextChanged(SqlConnection conn, TextBox server, Label status)
-        {
-            SqlConnectionStringBuilder conSTR = new SqlConnectionStringBuilder();
-            conSTR.DataSource = server.Text;
-            conSTR.IntegratedSecurity = true;
-
-            conn = new SqlConnection(conSTR.ToString());
-
+        {            
             try
             {
                 if (conn != null)
