@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Изменение автотранспортной/ЖД оператора" Height="563" Width="1004">
+        Title="Изменение автотранспортной/ЖД оператора" Height="700" Width="1004">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>
             <RowDefinition Height="480" MinHeight="480"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="331" MinWidth="331"/>
@@ -50,8 +51,15 @@
         <GroupBox x:Name="login_pass" Grid.Row="1" Grid.Column="2" Header="Подтверждение" Margin="3">
             <StackPanel VerticalAlignment="Center">
                 <TextBox x:Name="userID_edit" materialDesign:HintAssist.Hint="Код сотрудника изменившего ТЭК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" Foreground="Red" PreviewTextInput="userID_edit_PreviewTextInput" TextChanged="userID_edit_TextChanged" />
-                <Button x:Name="btn_edit_tek" Margin="5" Content="Изменить данные" FontFamily="Times New Roman" FontSize="20" Height="Auto" Click="btn_edit_tek_Click"/>
+                <Button x:Name="btn_edit_tek" Margin="5" Content="Изменить данные" FontFamily="Times New Roman" FontSize="20" Height="50" Click="btn_edit_tek_Click"/>
+                
+                <Border BorderThickness="1" BorderBrush="Black" Margin="5"/>
+                <TextBox x:Name="search_user" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="5,0" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center"/>
+                <Button x:Name="btn_search_user" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_search_user_Click" Margin="5" Content="Поиск сотрудника"/>
+
             </StackPanel>
         </GroupBox>
+
+        <DataGrid x:Name="data_info" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" />
     </Grid>
 </Window>

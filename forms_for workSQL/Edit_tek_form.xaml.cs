@@ -24,6 +24,8 @@ namespace rab_stol.forms_for_workSQL
         readonly OtherSQLquery otherQuery = new OtherSQLquery();
 
         SqlDataAdapter adapter;
+
+        DataTable dt;
         public Edit_tek_form()
         {
             InitializeComponent();
@@ -87,6 +89,24 @@ namespace rab_stol.forms_for_workSQL
 
         }
 
-        
+        private void btn_search_user_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                adapter = new SqlDataAdapter(q.User_inf(search_user.Text), connection);
+
+                dt = new DataTable();
+                adapter.Fill(dt);
+                data_info.ItemsSource = dt.DefaultView;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
