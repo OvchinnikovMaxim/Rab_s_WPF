@@ -65,30 +65,6 @@ namespace rab_stol.forms_for_workSQL
             userID_edit.Foreground = Brushes.Green;
         }
 
-        private void btn_search_id_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                adapter = new SqlDataAdapter(q.search_TEK(id_tek.Text), connection);
-
-                //dt = new DataTable();
-                
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void btn_edit_tek_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btn_search_user_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -107,6 +83,45 @@ namespace rab_stol.forms_for_workSQL
             {
                 MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btn_search_id_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int IDtek = Convert.ToInt32(id_tek.Text);
+
+                label_zavod.Content = (string)new SqlCommand(@"SELECT  CASE factory_id
+                                                                        WHEN  1 THEN 'НК'
+                                                                        WHEN  2 THEN 'НБП'
+                                                                        ELSE ''
+                                                                       END AS 'завод' 
+                                                              FROM nefco.dbo.co_contractor WHERE id = (SELECT contractor_id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek + ")", connection).ExecuteScalar();
+                edit_name_tek.Text = (string)new SqlCommand("SELECT name FROM nefco.dbo.co_contractor WHERE id = (SELECT contractor_id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek + ")", connection).ExecuteScalar();
+                edit_addres_tek.Text = (string)new SqlCommand("SELECT address FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_inn_tek.Text = (string)new SqlCommand("SELECT inn FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_kpp_tek.Text = (string)new SqlCommand("SELECT kpp FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_dogovor_tek.Text = (string)new SqlCommand("SELECT contract_number FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_date_dogovor.SelectedDate = (DateTime)new SqlCommand("SELECT contract_date FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_name_bank.Text = (string)new SqlCommand("SELECT bank_name FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_rasch_bank.Text = (string)new SqlCommand("SELECT settlement_account FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_cor_bank.Text = (string)new SqlCommand("SELECT loro_account FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_bik_bank.Text = (string)new SqlCommand("SELECT bik FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btn_edit_tek_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
