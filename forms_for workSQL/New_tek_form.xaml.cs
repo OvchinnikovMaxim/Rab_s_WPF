@@ -233,5 +233,11 @@ namespace rab_stol.forms_for_workSQL
                 MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void Edit_tek_Click(object sender, RoutedEventArgs e)
+        {
+            Edit_tek_form edit_Tek = new Edit_tek_form();
+            edit_Tek.Show();
+        }
     }
 }

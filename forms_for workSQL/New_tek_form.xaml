@@ -88,6 +88,7 @@
 
         </StackPanel>
 
+        <Button x:Name="Edit_tek" Grid.Row="1" Grid.Column="4" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5,20,5,5" Content="Изменить" Click="Edit_tek_Click"  />
         <StackPanel Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"  >
             <Label x:Name="label_class" Content="Класс" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center"/>
             <ComboBox x:Name="combo_class" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,10" SelectionChanged="combo_class_SelectionChanged">
