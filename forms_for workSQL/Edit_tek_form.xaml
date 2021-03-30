@@ -6,8 +6,52 @@
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Изменение автотранспортной/ЖД оператора" Height="450" Width="800">
+        Title="Изменение автотранспортной/ЖД оператора" Height="563" Width="1004">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition Height="480" MinHeight="480"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="331" MinWidth="331"/>
+            <ColumnDefinition Width="359" MinWidth="359"/>
+            <ColumnDefinition Width="302" MinWidth="302"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0"  materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
+
+        <GroupBox x:Name="edit_transp_info" Grid.Row="1" Grid.Column="0" Header="Транспортная компания" Margin="3">
+            <StackPanel VerticalAlignment="Center">
+                <DockPanel x:Name="search_tek" VerticalAlignment="Top" LastChildFill="False">
+                    <Label x:Name="label_zavod" Content="Завод" FontSize="18" FontFamily="Times New Roman" HorizontalContentAlignment="Center" DockPanel.Dock="Left" Width="66" VerticalAlignment="Center"/>
+                    <TextBox x:Name="id_tek" materialDesign:HintAssist.Hint="Код" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" HorizontalAlignment="Left" Width="136" PreviewTextInput="id_tek_PreviewTextInput" />
+                    <Button x:Name="btn_search_id" Content="Поиск" Width="109" DockPanel.Dock="Right" HorizontalAlignment="Center" Click="btn_search_id_Click"/>
+                </DockPanel>                
+                <TextBox x:Name="edit_name_tek" materialDesign:HintAssist.Hint="Наименование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" />
+                <TextBox x:Name="edit_addres_tek" materialDesign:HintAssist.Hint="Юридический адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <TextBox x:Name="edit_inn_tek" materialDesign:HintAssist.Hint="ИНН" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <TextBox x:Name="edit_kpp_tek" materialDesign:HintAssist.Hint="КПП" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <TextBox x:Name="edit_dogovor_tek" materialDesign:HintAssist.Hint="Номер договора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5"/>
+                <DatePicker x:Name="edit_date_dogovor" materialDesign:HintAssist.Hint="Дата договора" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" />                
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox x:Name="bank_info" Grid.Row="1" Grid.Column="1" Header="Реквизиты банка" Margin="3">
+            <StackPanel VerticalAlignment="Center">
+                <TextBox x:Name="edit_name_bank" materialDesign:HintAssist.Hint="Наименование банка" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20" />
+                <TextBox x:Name="edit_rasch_bank" materialDesign:HintAssist.Hint="Расчётный счёт" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20"/>
+                <TextBox x:Name="edit_cor_bank" materialDesign:HintAssist.Hint="Корреспондентский счёт" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20"/>
+                <TextBox x:Name="edit_bik_bank" materialDesign:HintAssist.Hint="БИК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0"/>
+            </StackPanel>
+        </GroupBox>
         
+        <GroupBox x:Name="login_pass" Grid.Row="1" Grid.Column="2" Header="Подтверждение" Margin="3">
+            <StackPanel VerticalAlignment="Center">
+                <TextBox x:Name="userID_edit" materialDesign:HintAssist.Hint="Код сотрудника изменившего ТЭК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" Foreground="Red" PreviewTextInput="userID_edit_PreviewTextInput" TextChanged="userID_edit_TextChanged" />
+                <Button x:Name="btn_edit_tek" Margin="5" Content="Изменить данные" FontFamily="Times New Roman" FontSize="20" Height="Auto" Click="btn_edit_tek_Click"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>
