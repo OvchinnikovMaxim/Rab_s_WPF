@@ -96,6 +96,9 @@
     <Compile Include="forms_for workSQL\Edit_pass_tek.xaml.cs">
       <DependentUpon>Edit_pass_tek.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms_for workSQL\Edit_tek_form.xaml.cs">
+      <DependentUpon>Edit_tek_form.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms_for workSQL\New_attr_form.xaml.cs">
       <DependentUpon>New_attr_form.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="forms_for workSQL\Edit_pass_tek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\Edit_tek_form.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
