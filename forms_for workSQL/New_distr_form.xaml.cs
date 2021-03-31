@@ -59,7 +59,7 @@ namespace rab_stol.forms_for_workSQL
 
                 MI = integration.IsChecked == true ? 1 : 0;
 
-                SqlCommand new_distr = new SqlCommand(q.new_distr(Convert.ToInt32(contractor_id.Text), zav, distr_login.Text, distr_login.Text, MT, MI), connection);
+                SqlCommand new_distr = new SqlCommand(q.new_distr(Convert.ToInt32(contractor_id.Text), zav, distr_pass.Text, distr_login.Text, MT, MI), connection);
 
                 new_distr.ExecuteNonQuery();
 
