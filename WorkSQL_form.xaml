@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Работа с базой" Height="400" Width="800" Icon="2.ico">
+        Title="Работа с базой" Height="400" Width="900" Icon="2.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -58,6 +59,11 @@
         <Button x:Name="btn_class_price" Grid.Row="1" Grid.Column="3" Margin="3" Height="Auto" Click="btn_class_price_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый класс прайс-листа" FontWeight="Bold" TextAlignment="Center"/>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btn_tc_trip" Grid.Row="0" Grid.Column="4" Margin="3" Height="Auto" Click="btn_tc_trip_Click">
+            <Button.Content>
+                <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Работа с рейсами" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
     </Grid>
