@@ -7,7 +7,60 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Работа с рейсами" Height="450" Width="800">
-    <Grid>
-        
+    <Grid x:Name="grid_main">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
+
+        <TabControl x:Name="tab_work_trip" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="3">
+            <TabItem x:Name="tab_log_trip" Header="Запись в лог" >
+                <TabItem.Content>
+                    <Grid x:Name="grid_log_trip">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="49" MinHeight="49"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="trip_id" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Код рейса" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5,0" PreviewTextInput="trip_id_PreviewTextInput" TextChanged="trip_id_TextChanged"/>
+                        <Button x:Name="btn_log_trip_1c" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_log_trip_1c_Click" Content="Зарегистрировать отправку в 1С"/>
+                        <Label x:Name="label_info_trip" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" Content="Запись добавлена в лог" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkGreen" FontFamily="Times New Roman" FontSize="70" IsEnabled="False"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="tab_trip_history" Header="История рейса" >
+                <TabItem.Content>
+                    <Grid x:Name="grid_trip_history">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="49" MinHeight="49"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="trip_id_history" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Код рейса" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5,0" PreviewTextInput="trip_id_history_PreviewTextInput"/>
+                        <Button x:Name="btn_trip_history" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_trip_history_Click" Content="История рейса"/>
+
+                        <DataGrid x:Name="data_trip_history" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" Margin="0,5,0,0" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" />
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
