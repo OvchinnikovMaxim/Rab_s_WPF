@@ -61,6 +61,12 @@ namespace rab_stol
             Del_ost_form del_Ost = new Del_ost_form();
             del_Ost.Show();
         }
+        
+        private void btn_tc_trip_Click(object sender, RoutedEventArgs e)
+        {
+            Work_trip trip = new Work_trip();
+            trip.Show();
+        }
         #endregion
     }
 }
