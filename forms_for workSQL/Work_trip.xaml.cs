@@ -17,7 +17,7 @@ namespace rab_stol.forms_for_workSQL
     {
         SqlConnection connection;
 
-        Query q = new Query();
+        OtherSQLquery otherSQLquery = new OtherSQLquery();
 
         Serv_conn sc = new Serv_conn();
 
@@ -60,19 +60,46 @@ namespace rab_stol.forms_for_workSQL
 
         private void trip_id_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            label_info_trip.Visibility = Visibility.Hidden;
         }
 
         private void btn_log_trip_1c_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                SqlCommand log_trip_1c = new SqlCommand(otherSQLquery.Trip_log_in_1c(Convert.ToInt32(trip_id.Text)), connection);
+                log_trip_1c.ExecuteNonQuery();
 
+                label_info_trip.Visibility = Visibility.Visible;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
-       
 
         private void btn_trip_history_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                adapter = new SqlDataAdapter(otherSQLquery.Trip_history(Convert.ToInt32(trip_id_history.Text)), connection);
 
+                dt = new DataTable();
+                adapter.Fill(dt);
+                data_trip_history.ItemsSource = dt.DefaultView;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         
