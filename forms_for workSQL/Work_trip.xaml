@@ -38,7 +38,7 @@
 
                         <TextBox x:Name="trip_id" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Код рейса" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5,0" PreviewTextInput="trip_id_PreviewTextInput" TextChanged="trip_id_TextChanged"/>
                         <Button x:Name="btn_log_trip_1c" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_log_trip_1c_Click" Content="Зарегистрировать отправку в 1С"/>
-                        <Label x:Name="label_info_trip" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" Content="Запись добавлена в лог" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkGreen" FontFamily="Times New Roman" FontSize="70" IsEnabled="False"/>
+                        <Label x:Name="label_info_trip" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" Content="Запись добавлена в лог" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkGreen" FontFamily="Times New Roman" FontSize="70" IsEnabled="False" Visibility="Hidden"/>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
