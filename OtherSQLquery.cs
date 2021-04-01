@@ -13,7 +13,7 @@ namespace rab_stol
         /// </summary>
         /// <param name="number">Код заказа</param>
         /// <param name="comment">Комментарий для лога</param>
-        /// <returns></returns>
+        /// <returns>строку запроса</returns>
         public string Recovery_zakaz(int number, string comment)
         {
             string query =
@@ -167,7 +167,7 @@ namespace rab_stol
         /// Отображение восстановленного заказа
         /// </summary>
         /// <param name="number">Код заказа</param>
-        /// <returns></returns>
+        /// <returns>строку запроса</returns>
         public string Display_zakaz(int number)
         {
             string query = "SELECT * FROM [nefco].[dbo].[zakaz_hat] WHERE id = " + number + ";";
@@ -175,7 +175,22 @@ namespace rab_stol
             return query;
         }
 
-
+        /// <summary>
+        /// Редактирование транспортной/ЖД
+        /// </summary>
+        /// <param name="TEKid">код транспортной/ЖД</param>
+        /// <param name="name">Наименование</param>
+        /// <param name="dogovor">номер договора</param>
+        /// <param name="address">Юридический адрес</param>
+        /// <param name="r_s">Расчетный счет</param>
+        /// <param name="bank">Наименование банка</param>
+        /// <param name="k_s">Корреспондетский счет</param>
+        /// <param name="bik">БИК</param>
+        /// <param name="inn">ИНН</param>
+        /// <param name="kpp">КПП</param>
+        /// <param name="date_n">Дата договора</param>
+        /// <param name="userID">Код сотрудника изменивщего ТЭК</param>
+        /// <returns>строку запроса</returns>
         public string Edit_tek(int TEKid,string name, string dogovor, string address, string r_s, string bank, string k_s, string bik, string inn, string kpp, DateTime date_n, int userID)
         {
             string query = @"
@@ -230,6 +245,45 @@ DECLARE @name varchar(500) = '" + name + "';" +
   EXEC dbo.co_log_detail_insert @log_id, 'инн', @inn, @log_detail_id OUTPUT;
   EXEC dbo.co_log_detail_insert @log_id, 'кпп', @kpp, @log_detail_id OUTPUT;
   EXEC dbo.co_log_detail_insert @log_id, 'дата договора', @contract_date, @log_detail_id OUTPUT;";
+
+            return query;
+        }
+
+        /// <summary>
+        /// Запись в лог, что зарегистрирована отправка рейса в 1С
+        /// </summary>
+        /// <param name="trip_id">код рейса</param>
+        /// <returns>строку запроса</returns>
+        public string Trip_log_in_1c(int trip_id)
+        {
+            string query = "INSERT INTO [service].[dbo].[tc_trip_log](log_app_id, tc_trip_id, date, user_id, action, status_id) " +
+                "VALUES(4, " + trip_id + ", CURRENT_TIMESTAMP, 1, 'Зарегистрирована отправка в 1С', 6)";
+
+            return query;
+        }
+
+        /// <summary>
+        /// История рейса
+        /// </summary>
+        /// <param name="trip_id">код рейса</param>
+        /// <returns>строку запроса</returns>
+        public string Trip_history(int trip_id)
+        {
+            string query = @"
+SELECT ttl.tc_trip_id as 'ID рейса'
+, isnull(cc.name, ' ' ) 'ТЭК'
+, ttl.date 'Дата действия'
+, isnull(ttl.action, '') 'Действие'
+, ttls.name 'Тип действия'
+, isnull(cp.name, ' ') 'Имя пользователя'
+, isnull(cp.surname, ' ') 'Фамилия пользователя'
+FROM Service.dbo.tc_trip_log ttl
+left join Service.dbo.tc_trip_log_status ttls on ttls.id = ttl.status_id
+left join co_user cu on cu.id = ttl.user_id
+left join co_person cp on cp.user_id = cu.id
+left join co_contractor cc on cc.id = ttl.transp_company
+WHERE tc_trip_id = " + trip_id +
+"ORDER BY date DESC";
 
             return query;
         }
