@@ -144,8 +144,35 @@ namespace rab_stol
 
                     adapter = new SqlDataAdapter(query, connection);
                 }
-                
-                                
+                if (radio_role.IsChecked == true)
+                {
+                    string query = String.Empty;
+                    query = "SELECT sr.name AS 'Роль для отчета', rl.name AS 'Отчет на сайте' " +
+                        "FROM gamma.dbo.reports_list rl " +
+                        "JOIN gamma.dbo.sp_role sr ON rl.role = sr.id";
+                    if (!String.IsNullOrWhiteSpace(name_role.Text) && !String.IsNullOrWhiteSpace(name_report.Text))
+                    {
+                        query += " WHERE sr.name LIKE '%" + name_role.Text + "%' OR rl.name LIKE '%" + name_report.Text + "%'";
+                    }
+                    else
+                    {
+                        if (!String.IsNullOrWhiteSpace(name_role.Text))
+                        {
+                            query += " WHERE sr.name LIKE '%" + name_role.Text + "%'";
+                        }
+                        if (!String.IsNullOrWhiteSpace(name_report.Text))
+                        {
+                            query += " WHERE rl.name LIKE '%" + name_report.Text + "%'";
+                        }
+                    }
+
+
+
+                    query += " ORDER BY 2";
+
+                    adapter = new SqlDataAdapter(query, connection);
+                }
+
                 dt = new DataTable();
                 adapter.Fill(dt);                
                 dataGR.ItemsSource = dt.DefaultView;

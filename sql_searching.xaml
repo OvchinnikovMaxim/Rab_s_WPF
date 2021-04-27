@@ -30,6 +30,7 @@
                         <RowDefinition Height="49" MinHeight="49"/>
                         <RowDefinition Height="49" MinHeight="49"/>
                         <RowDefinition Height="120" MinHeight="120" />
+                        <RowDefinition Height="98*" MinHeight="98" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="135*"/>
@@ -97,7 +98,7 @@
                     <RadioButton x:Name="radio_prod_price" Grid.Row="8" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0" Padding="4,0,0,0" Content="Продукция в прайсе" />
                     <TextBox x:Name="prod_price" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Номер прайс-листа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" PreviewTextInput="prod_price_PreviewTextInput" />
 
-                    <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,1" Margin="0,0,0,0" />
+                    <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,0" Margin="0,0,0,0" />
                     <RadioButton x:Name="radio_search_SD" Grid.Row="9" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left" Width="160" Margin="0" Padding="4,0,0,0" Content="Поиск по базе SD" Checked="radio_search_SD_Checked" Unchecked="radio_search_SD_Unchecked" />
                     <Canvas x:Name="search_sd" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" IsEnabled="False">
                         <ListBox x:Name="list_search_word" Width="220"  BorderBrush="#FF0C0B0B" Canvas.Top="3" Canvas.Left="3" BorderThickness="1" Height="114"/>
@@ -105,6 +106,13 @@
                         <Button x:Name="del_word" Content="X" Canvas.Top="45" Canvas.Right="20" Width="49" Click="del_word_Click"/>
                         <Button x:Name="clear_word" Content="XX" Canvas.Top="80" Canvas.Right="20" Width="49" Click="clear_word_Click"/>
                     </Canvas>
+
+                    <RadioButton x:Name="radio_role" Grid.Row="10" Grid.Column="0" Content="Поиск роли" HorizontalAlignment="Left" Width="160" VerticalAlignment="Center" Height="18" Style="{StaticResource MaterialDesignAccentRadioButton}" Margin="0" />
+                    <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,1" Margin="0,0,0,0" />
+                    <StackPanel x:Name="panel_role" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Margin="0" >
+                        <TextBox x:Name="name_role" materialDesign:HintAssist.Hint="Роль для отчета" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
+                        <TextBox x:Name="name_report" materialDesign:HintAssist.Hint="Отчет на сайте" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" />
+                    </StackPanel>
                 </Grid>
             </ScrollViewer>
         </Border>

@@ -69,6 +69,7 @@ namespace rab_stol
             text_btn_search.Text += '\n' + "*" + "Список прайсов дистрибьютора";
             text_btn_search.Text += '\n' + "*" + "Продукция в прайс-листе";
             text_btn_search.Text += '\n' + "*" + "Поиск по базе сервис деска";
+            text_btn_search.Text += '\n' + "*" + "Поиск роли для отчета на сайте";
 
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
