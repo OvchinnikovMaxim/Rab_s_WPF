@@ -125,6 +125,7 @@ namespace rab_stol
             text_btn_work_sql.Text += '\n' + "*" + "Новый атрибут для материалов";
             text_btn_work_sql.Text += '\n' + "*" + "Удаление остатков";
             text_btn_work_sql.Text += '\n' + "*" + "Новый класс прайс-листа";
+            text_btn_work_sql.Text += '\n' + "*" + "Работа с рейсами";
 
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
