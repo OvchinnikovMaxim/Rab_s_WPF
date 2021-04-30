@@ -205,8 +205,8 @@ namespace rab_stol.forms_for_workSQL
                 int trans_from = Convert.ToInt32(text_from_railway_trans.Text);
                 int trans_to = Convert.ToInt32(text_to_railway_trans.Text);
 
-                SqlCommand search_trans_from = new SqlCommand("SELECT id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + trans_from, connection);
-                SqlCommand search_trans_to = new SqlCommand("SELECT id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + trans_to, connection);
+                SqlCommand search_trans_from = new SqlCommand("SELECT contractor_id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + trans_from, connection);
+                SqlCommand search_trans_to = new SqlCommand("SELECT contractor_id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + trans_to, connection);
 
                 string query = @"INSERT INTO nefco.dbo.tc_trip_railway_transpcompany_service(transp_company,service_id)" +
                 "SELECT " + trans_to + ", service_id FROM nefco.dbo.tc_trip_railway_transpcompany_service WHERE transp_company=" + trans_from + ";";
