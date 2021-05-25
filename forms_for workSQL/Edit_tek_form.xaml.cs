@@ -99,25 +99,25 @@ namespace rab_stol.forms_for_workSQL
                                                                        END AS 'завод' 
                                                               FROM nefco.dbo.co_contractor WHERE id = (SELECT contractor_id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek + ")", connection).ExecuteScalar();
 
-                edit_name_tek.Text = (string)new SqlCommand("SELECT name FROM nefco.dbo.co_contractor WHERE id = (SELECT contractor_id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek + ")", connection).ExecuteScalar();
+                edit_name_tek.Text = new SqlCommand("SELECT name FROM nefco.dbo.co_contractor WHERE id = (SELECT contractor_id FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek + ")", connection).ExecuteScalar().ToString();
 
-                edit_addres_tek.Text = (string)new SqlCommand("SELECT address FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_addres_tek.Text = new SqlCommand("SELECT address FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString();
 
-                edit_inn_tek.Text = (string)new SqlCommand("SELECT inn FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_inn_tek.Text = new SqlCommand("SELECT inn FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString();
 
-                edit_kpp_tek.Text = (string)new SqlCommand("SELECT kpp FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_kpp_tek.Text = new SqlCommand("SELECT kpp FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString();
 
-                edit_dogovor_tek.Text = (string)new SqlCommand("SELECT contract_number FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_dogovor_tek.Text = new SqlCommand("SELECT contract_number FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString();
 
                 edit_date_dogovor.SelectedDate = (DateTime)new SqlCommand("SELECT contract_date FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
 
-                edit_name_bank.Text = (string)new SqlCommand("SELECT bank_name FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_name_bank.Text = new SqlCommand("SELECT bank_name FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString();
 
-                edit_rasch_bank.Text = (string)new SqlCommand("SELECT settlement_account FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_rasch_bank.Text = new SqlCommand("SELECT settlement_account FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString();
 
-                edit_cor_bank.Text = (string)new SqlCommand("SELECT loro_account FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar();
+                edit_cor_bank.Text = new SqlCommand("SELECT loro_account FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString();
 
-                edit_bik_bank.Text = (string)new SqlCommand("SELECT bik FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar(); 
+                edit_bik_bank.Text = new SqlCommand("SELECT bik FROM nefco.dbo.co_contractor_attr_transp WHERE contractor_id=" + IDtek, connection).ExecuteScalar().ToString(); 
                 #endregion
 
             }
