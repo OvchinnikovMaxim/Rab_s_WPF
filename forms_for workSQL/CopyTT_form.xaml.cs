@@ -59,7 +59,17 @@ namespace rab_stol.forms_for_workSQL
         private void sectorID_in_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             sc.TextChisla(e);
-        } 
+        }
+
+        private void sector_id_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            sc.TextChisla(e);
+        }
+
+        private void contractor_id_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            sc.TextChisla(e);
+        }
         #endregion
 
         private void btn_copyTT_Click(object sender, RoutedEventArgs e)
@@ -85,5 +95,105 @@ namespace rab_stol.forms_for_workSQL
                 MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btn_copyTT_new_distr_Click(object sender, RoutedEventArgs e)
+        {
+            string t1, t2, t3, query;
+
+            t1 = @"/* Входные параметры */
+DECLARE @contractor_id  int             = " + Convert.ToInt32(contractor_id.Text) + @"; --Новый дистр
+DECLARE @sector_id      int             = " + Convert.ToInt32(sector_id.Text) + @"; --Новый сектор
+DECLARE @clients varchar(max)           = '" + clients.Text + @"'
+
+DECLARE @distr_id varchar(max) = (select distr_id from nefco.dbo.co_contractor_attr_customer where contractor_id = @contractor_id);
+            DECLARE @ALL_IS_OK int = 0;
+
+            If(OBJECT_ID('tempdb..#clients') IS NOT NULL) Drop Table #clients;
+
+BEGIN TRANSACTION Trans_clients_2_contractor
+BEGIN TRY
+    /* Запоминаем клиентов которых надо копернуть */
+    Select *, row_number() over(order by client_id) as rnm
+
+    INTO #clients
+	from nefco.dbo.client_card c
+
+    JOIN(select items from analitic.dbo.Split(@clients, ',')) cls ON cls.items = c.client_id
+
+    DECLARE
+        @rows       int = (select count(*) from #clients),
+		@max_d1     int = (select max(id1) from nefco.dbo.client_card where contractor_id = @contractor_id),
+		@start_row  int = 1;
+
+            WHILE @start_row <= @rows
+
+    BEGIN
+        INSERT INTO nefco.dbo.client_card
+            ([INN], [client_name], [client_adress], [urname], [uradress], [parent_id]
+            , [type_id], [category_id], [dostup_id], [oplata_id], [oplata_prolong], [distr_id], [id1]
+            , [city_id], [raion_id], [emp_id], [date_create], [visible], [fupd], [tnet_id], [area_id]
+            , [resp_id], [sector_id], [factory_id], [postindex], [cspace], [visittime], [ordertype]
+            , [comment], [visitweek], [visitday], [new_card], [visible_2122010], [route_pos], [face_sms]
+            , [face_gms], [face_tm], [face_butter], [net_type_id], [similar_id], [city_kladr_id], [child_sales]
+            , [work_time_from], [work_time_to], [visit_time_from], [visit_time_to], [rest_time_from]
+            , [rest_time_to], [work_allday], [contact_id], [street_kladr_id], [house_num], [opt_contractor]
+            , [square_area], [group_id], [contractor_id], [shelf])
+
+        select
+            [INN], [client_name], [client_adress], [urname], [uradress], [parent_id]
+			, [type_id], [category_id], [dostup_id], [oplata_id], [oplata_prolong], @distr_id, @max_d1 + rnm
+			, [city_id], [raion_id], [emp_id], [date_create], [visible], [fupd], [tnet_id], [area_id]
+			, [resp_id], @sector_id, [factory_id], [postindex], [cspace], [visittime], [ordertype]
+			, [comment], [visitweek], [visitday], [new_card], [visible_2122010], [route_pos], [face_sms]
+			, [face_gms], [face_tm], [face_butter], [net_type_id], [similar_id], [city_kladr_id], [child_sales]
+			, [work_time_from], [work_time_to], [visit_time_from], [visit_time_to], [rest_time_from]
+			, [rest_time_to], [work_allday], [contact_id], [street_kladr_id], [house_num], [opt_contractor]
+			, [square_area], [group_id], @contractor_id, [shelf]
+            from #clients where rnm = @start_row;
+
+		set @start_row = @start_row + 1;
+            END" + '\n';
+
+            t2 = @"/* Скидываем видимость клиентов которых копирнули */
+	    UPDATE c set visible = 1 
+		from nefco.dbo.client_card c 	
+		JOIN (select items from analitic.dbo.Split(@clients,',')) cls ON cls.items = c.client_id" + '\n';
+
+            t3 = @"SET @ALL_IS_OK = 1;
+END TRY
+BEGIN CATCH
+
+    ROLLBACK TRANSACTION Trans_clients_2_contractor
+    print 'Error!'
+END CATCH
+
+IF @ALL_IS_OK = 1 COMMIT TRANSACTION Trans_clients_2_contractor";
+
+            query = visible_copies_tt.IsChecked == true ? t1 + t2 + t3 : t1 + t3;
+
+            try
+            {
+                SqlCommand copyTT_new_distr = new SqlCommand(query, connection);
+                copyTT_new_distr.ExecuteNonQuery();
+
+                MessageBox.Show("Копирование завершено", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void clients_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!(Char.IsDigit(e.Text, 0) || e.Text == ","))
+                e.Handled = true;
+        }
+
+        
     }
 }

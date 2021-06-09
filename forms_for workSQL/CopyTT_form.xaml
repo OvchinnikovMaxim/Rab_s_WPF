@@ -6,16 +6,15 @@
         xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Копирование ТТ с сектора одного дистрибьтора на сектор другого дистрибьютора" Height="201" Width="972">
-    <Grid>
+        Title="Копирование ТТ с сектора одного дистрибьтора на сектор другого дистрибьютора" Height="317" Width="976">
+    <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>
-            <RowDefinition Height="71" MinHeight="71"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="241" MinWidth="241"/>
-            <ColumnDefinition />
+            <ColumnDefinition Width="224" MinWidth="224"/>
             <ColumnDefinition MinWidth="257" Width="257"/>
             <ColumnDefinition Width="235" MinWidth="235"/>
         </Grid.ColumnDefinitions>
@@ -24,11 +23,56 @@
         <Label x:Name="label_status" Grid.Row="0" Grid.Column="3" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="text_server_PreviewTextInput" TextChanged="text_server_TextChanged"  />
 
-        <TextBox x:Name="distrID_out" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Код дистра откуда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="distrID_out_PreviewTextInput"/>
-        <TextBox x:Name="distrID_in" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Код дистра куда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="distrID_in_PreviewTextInput"/>
-        <TextBox x:Name="sectorID_out" Grid.Row="1" Grid.Column="2" materialDesign:HintAssist.Hint="Код сектора откуда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="sectorID_out_PreviewTextInput"/>
-        <TextBox x:Name="sectorID_in" Grid.Row="1" Grid.Column="3" materialDesign:HintAssist.Hint="Код сектора куда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="sectorID_in_PreviewTextInput"/>
+        <TabControl x:Name="Copy_work" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+            <TabItem x:Name="Sector_to_sector" Header="С сектора на сектор" FontSize="18">
+                <TabItem.Content>
+                    <Grid x:Name="Sector_copy" Background="#FFE5E5E5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="71" MinHeight="71"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="241" MinWidth="241"/>
+                            <ColumnDefinition Width="224" MinWidth="224"/>
+                            <ColumnDefinition MinWidth="257" Width="257"/>
+                            <ColumnDefinition Width="235" MinWidth="235"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="distrID_out" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Код дистра откуда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="distrID_out_PreviewTextInput"/>
+                        <TextBox x:Name="distrID_in" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Код дистра куда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="distrID_in_PreviewTextInput"/>
+                        <TextBox x:Name="sectorID_out" Grid.Row="0" Grid.Column="2" materialDesign:HintAssist.Hint="Код сектора откуда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="sectorID_out_PreviewTextInput"/>
+                        <TextBox x:Name="sectorID_in" Grid.Row="0" Grid.Column="3" materialDesign:HintAssist.Hint="Код сектора куда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="sectorID_in_PreviewTextInput"/>
 
-        <Button x:Name="btn_copyTT" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Click="btn_copyTT_Click" Content="Копировать" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto"/>
+                        <Button x:Name="btn_copyTT" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Click="btn_copyTT_Click" Content="Копировать" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="Copy_tt_distr" Header="Список ТТ на дистра" FontSize="18">
+                <TabItem.Content>
+                    <Grid x:Name="copy_tt" Background="#FFE5E5E5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="71" MinHeight="71"/>
+                            <RowDefinition Height="71" MinHeight="71"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="241" MinWidth="241"/>
+                            <ColumnDefinition Width="224" MinWidth="224"/>
+                            <ColumnDefinition MinWidth="257" Width="257"/>
+                            <ColumnDefinition Width="235" MinWidth="235"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="contractor_id" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Код дистра куда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="contractor_id_PreviewTextInput"/>
+                        <TextBox x:Name="sector_id" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Код сектора куда копировать" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="sector_id_PreviewTextInput"/>
+                        <TextBox x:Name="clients" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" materialDesign:HintAssist.Hint="Коды клиентов через запятую" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="clients_PreviewTextInput"/>
+                        <DockPanel Grid.Row="1" Grid.Column="3">
+                            <CheckBox x:Name="visible_copies_tt" Style="{StaticResource MaterialDesignActionLightCheckBox}"  HorizontalAlignment="Left"   VerticalAlignment="Top"/>
+                            <TextBox IsReadOnly="True" Text="Убрать видимость копируемых клиентов" BorderThickness="0" TextWrapping="Wrap" TextAlignment="Left"/>
+                        </DockPanel>
+
+                        <Button x:Name="btn_copyTT_new_distr" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Content="Копировать" Margin="5" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="btn_copyTT_new_distr_Click"/>
+                        
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
