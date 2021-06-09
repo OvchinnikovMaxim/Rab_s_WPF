@@ -98,9 +98,11 @@ namespace rab_stol.forms_for_workSQL
 
         private void btn_copyTT_new_distr_Click(object sender, RoutedEventArgs e)
         {
-            string t1, t2, t3, query;
+            try
+            {
+                string t1, t2, t3, query;
 
-            t1 = @"/* Входные параметры */
+                t1 = @"/* Входные параметры */
 DECLARE @contractor_id  int             = " + Convert.ToInt32(contractor_id.Text) + @"; --Новый дистр
 DECLARE @sector_id      int             = " + Convert.ToInt32(sector_id.Text) + @"; --Новый сектор
 DECLARE @clients varchar(max)           = '" + clients.Text + @"'
@@ -154,12 +156,12 @@ BEGIN TRY
 		set @start_row = @start_row + 1;
             END" + '\n';
 
-            t2 = @"/* Скидываем видимость клиентов которых копирнули */
+                t2 = @"/* Скидываем видимость клиентов которых копирнули */
 	    UPDATE c set visible = 1 
 		from nefco.dbo.client_card c 	
 		JOIN (select items from analitic.dbo.Split(@clients,',')) cls ON cls.items = c.client_id" + '\n';
 
-            t3 = @"SET @ALL_IS_OK = 1;
+                t3 = @"SET @ALL_IS_OK = 1;
 END TRY
 BEGIN CATCH
 
@@ -169,10 +171,9 @@ END CATCH
 
 IF @ALL_IS_OK = 1 COMMIT TRANSACTION Trans_clients_2_contractor";
 
-            query = visible_copies_tt.IsChecked == true ? t1 + t2 + t3 : t1 + t3;
+                query = visible_copies_tt.IsChecked == true ? t1 + t2 + t3 : t1 + t3;
 
-            try
-            {
+            
                 SqlCommand copyTT_new_distr = new SqlCommand(query, connection);
                 copyTT_new_distr.ExecuteNonQuery();
 
