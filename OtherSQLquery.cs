@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rab_stol
 {
@@ -160,6 +156,17 @@ namespace rab_stol
 
             INSERT INTO[nefco].[dbo].[order_control_logs] VALUES('admin', @order_id, '', 1, GETDATE(), '" + comment + "');";
 
+            return query;
+        }
+
+        /// <summary>
+        /// Удаление заказа из zakaz_hat_delete
+        /// </summary>
+        /// <param name="number">Код заказа</param>
+        /// <returns></returns>
+        public string Del_zakaz_hat_delete(int number)
+        {
+            string query = "DELETE FROM [nefco].[dbo].[zakaz_hat_delete] WHERE [id]=" + number + ";";
             return query;
         }
 

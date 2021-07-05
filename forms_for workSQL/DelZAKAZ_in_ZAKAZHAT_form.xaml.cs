@@ -130,6 +130,9 @@ namespace rab_stol.forms_for_workSQL
                 SqlCommand rec_zakaz = new SqlCommand(otherQuery.Recovery_zakaz(Convert.ToInt32(rec_text_zakazID.Text), rec_comment.Text), connection);
                 rec_zakaz.ExecuteNonQuery();
 
+                SqlCommand del_zakaz_delete = new SqlCommand(otherQuery.Del_zakaz_hat_delete(Convert.ToInt32(rec_text_zakazID.Text)), connection);
+                del_zakaz_delete.ExecuteNonQuery();
+
                 MessageBox.Show("Заказ восстановлен", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 adapter = new SqlDataAdapter(otherQuery.Display_zakaz(Convert.ToInt32(rec_text_zakazID.Text)), connection);
