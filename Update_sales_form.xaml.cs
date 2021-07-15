@@ -248,14 +248,7 @@ namespace rab_stol
             date1 = date1.AddSeconds(1);
             label_time.Content = date1.ToString("mm:ss");
             
-            if (date1.Minute >= 1)
-            {
-                check_blocking.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                check_blocking.Visibility = Visibility.Hidden;
-            }
+            check_blocking.Visibility = date1.Minute >= 1 ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void backgroundWorker_obr_DoWork(object sender, DoWorkEventArgs e)
