@@ -52,7 +52,7 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="SQLquerys, Version=1.0.7690.28555, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SQLquerys, Version=1.0.7751.15617, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SQLquerys\SQLquerys\bin\Release\SQLquerys.dll</HintPath>
     </Reference>
