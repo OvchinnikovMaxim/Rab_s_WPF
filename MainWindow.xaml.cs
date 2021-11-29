@@ -28,25 +28,25 @@ namespace rab_stol
         }
 
         #region Запуск соответствующих форм
-        private void btn_sql_searching_Click(object sender, RoutedEventArgs e)
+        private void Btn_sql_searching_Click(object sender, RoutedEventArgs e)
         {
             sql_searching sqlSearching = new sql_searching();
             sqlSearching.Show();
         }
 
-        private void btn_create_tt_Click(object sender, RoutedEventArgs e)
+        private void Btn_create_tt_Click(object sender, RoutedEventArgs e)
         {
             Create_TT_form create_TT = new Create_TT_form();
             create_TT.Show();
         }
 
-        private void btn_update_sales_Click(object sender, RoutedEventArgs e)
+        private void Btn_update_sales_Click(object sender, RoutedEventArgs e)
         {
             Update_sales_form update_Sales = new Update_sales_form();
             update_Sales.Show();
         }
 
-        private void btn_work_sql_Click(object sender, RoutedEventArgs e)
+        private void Btn_work_sql_Click(object sender, RoutedEventArgs e)
         {
             WorkSQL_form workSQL = new WorkSQL_form();
             workSQL.Show();
@@ -54,7 +54,7 @@ namespace rab_stol
         #endregion
 
         #region Анимации кнопок
-        private void btn_sql_searching_MouseEnter(object sender, MouseEventArgs e)
+        private void Btn_sql_searching_MouseEnter(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
@@ -74,7 +74,7 @@ namespace rab_stol
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
 
-        private void btn_sql_searching_MouseLeave(object sender, MouseEventArgs e)
+        private void Btn_sql_searching_MouseLeave(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
@@ -85,7 +85,7 @@ namespace rab_stol
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
 
-        private void btn_update_sales_MouseEnter(object sender, MouseEventArgs e)
+        private void Btn_update_sales_MouseEnter(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
@@ -100,7 +100,7 @@ namespace rab_stol
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
 
-        private void btn_update_sales_MouseLeave(object sender, MouseEventArgs e)
+        private void Btn_update_sales_MouseLeave(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
@@ -111,12 +111,13 @@ namespace rab_stol
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
 
-        private void btn_work_sql_MouseEnter(object sender, MouseEventArgs e)
+        private void Btn_work_sql_MouseEnter(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
             this.btn_work_sql.RenderTransform = rt;
 
+            text_btn_work_sql.FontSize = 14;
             text_btn_work_sql.Text = "*" + "Новый дистрибьютор";
             text_btn_work_sql.Text += '\n' + "*" + "Добавление/изменение транспортной";
             text_btn_work_sql.Text += '\n' + "*" + "Новый пользователь программ на делфи";
@@ -126,23 +127,25 @@ namespace rab_stol
             text_btn_work_sql.Text += '\n' + "*" + "Удаление остатков";
             text_btn_work_sql.Text += '\n' + "*" + "Новый класс прайс-листа";
             text_btn_work_sql.Text += '\n' + "*" + "Работа с рейсами";
+            text_btn_work_sql.Text += '\n' + "*" + "Удаление уволенных сотрудников";
 
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
 
-        private void btn_work_sql_MouseLeave(object sender, MouseEventArgs e)
+        private void Btn_work_sql_MouseLeave(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
             this.btn_work_sql.RenderTransform = rt;
 
+            text_btn_work_sql.FontSize = 16;
             text_btn_work_sql.Text = "Работа с базой";
 
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
 
         }
 
-        private void btn_create_tt_MouseEnter(object sender, MouseEventArgs e)
+        private void Btn_create_tt_MouseEnter(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };
@@ -153,7 +156,7 @@ namespace rab_stol
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
         }
 
-        private void btn_create_tt_MouseLeave(object sender, MouseEventArgs e)
+        private void Btn_create_tt_MouseLeave(object sender, MouseEventArgs e)
         {
             DoubleAnimation da = new DoubleAnimation() { From = 0, To = 360, Duration = TimeSpan.FromMilliseconds(100), RepeatBehavior = new RepeatBehavior(1) };
             RotateTransform rt = new RotateTransform() { CenterX = 165, CenterY = 143 };

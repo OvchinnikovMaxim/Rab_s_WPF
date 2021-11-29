@@ -1,0 +1,52 @@
+﻿<Window x:Class="rab_stol.Del_user"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rab_stol"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Удаление уволенных сотрудников" Height="450" Width="734.809">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="Btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18"    HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="Text_server_PreviewTextInput" TextChanged="Text_server_TextChanged"  />
+
+        <DataGrid x:Name="dataGR" Grid.Row="1" Grid.Column="1" Margin="5" Grid.ColumnSpan="2" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False"/>
+
+        <Grid Grid.Row="1" Grid.Column="0" Margin="0,2,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="49" MinHeight="49"/>
+                <RowDefinition Height="49" MinHeight="49"/>
+                <RowDefinition Height="49" MinHeight="49"/>
+                <RowDefinition Height="49" MinHeight="49"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="106*"/>
+                <ColumnDefinition Width="137*"/>
+            </Grid.ColumnDefinitions>
+
+            <RadioButton x:Name="radio_user_inf" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left"  IsChecked="True" Content="Делфи" Width="74" />
+            <TextBox x:Name="user_inf_surname" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top"/>
+
+            <RadioButton x:Name="radio_user_ncsd" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignAccentRadioButton}" HorizontalAlignment="Left"  Content="NCSD" Width="53" />
+            <TextBox x:Name="surname_ncsd" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="search" Margin="2" Content="Поиск" Height="Auto" IsDefault="True" Click="Search_Click" />
+
+            <TextBox x:Name="id" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="Идентификатор" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" Margin="0,0,0,2" PreviewTextInput="Id_PreviewTextInput"/>
+            <Button  x:Name="delete" Grid.Row="3" Grid.Column="1" Margin="2" Content="Удаление" Height="Auto" Click="Delete_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

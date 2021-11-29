@@ -78,6 +78,9 @@
     <Compile Include="Create_TT_form.xaml.cs">
       <DependentUpon>Create_TT_form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms_for workSQL\Del_user.xaml.cs">
+      <DependentUpon>Del_user.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms_for workSQL\About_obr.xaml.cs">
       <DependentUpon>About_obr.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <DependentUpon>WorkSQL_form.xaml</DependentUpon>
     </Compile>
     <Page Include="Create_TT_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\Del_user.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
