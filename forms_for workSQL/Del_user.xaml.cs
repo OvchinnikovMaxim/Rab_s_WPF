@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLquerys;
+using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data.SqlClient;
-using System.Data;
-using SQLquerys;
 
 namespace rab_stol
 {
@@ -54,8 +45,6 @@ namespace rab_stol
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            connection = new SqlConnection(ConSTR(text_server.Text));
-            connection.Open();
             try
             {
                 if (radio_user_inf.IsChecked == true)
@@ -98,17 +87,10 @@ namespace rab_stol
             {
                 MessageBox.Show(ex.ToString());
             }
-            finally
-            {
-                connection.Close();
-            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            connection = new SqlConnection(ConSTR(text_server.Text));
-            connection.Open();
-
             string query = String.Empty;
             string user = String.Empty;
 
@@ -136,25 +118,7 @@ namespace rab_stol
             {
                 MessageBox.Show(ex.ToString());
             }
-            finally
-            {
-                connection.Close();
-            }
 
-        }
-
-        /// <summary>
-        /// Формирование строки подключения
-        /// </summary>
-        /// <param name="server">IP адрес сервера</param>
-        /// <returns>строка подключения</returns>
-        public string ConSTR(string server)
-        {
-            SqlConnectionStringBuilder conSTR = new SqlConnectionStringBuilder();
-            conSTR.DataSource = server;
-            conSTR.IntegratedSecurity = true;
-
-            return conSTR.ToString();
         }
 
         private void Id_PreviewTextInput(object sender, TextCompositionEventArgs e)
