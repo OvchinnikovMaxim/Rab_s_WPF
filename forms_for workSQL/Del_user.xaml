@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Удаление уволенных сотрудников" Height="450" Width="734.809">
+        Title="Удаление уволенных сотрудников" Height="481.765" Width="883.044">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49" MinHeight="49"/>
@@ -24,7 +24,7 @@
 
         <DataGrid x:Name="dataGR" Grid.Row="1" Grid.Column="1" Margin="5" Grid.ColumnSpan="2" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False"/>
 
-        <Grid Grid.Row="1" Grid.Column="0" Margin="0,2,0,0">
+        <Grid Grid.Row="1" Grid.Column="0" Margin="0,2,0,152">
             <Grid.RowDefinitions>
                 <RowDefinition Height="49" MinHeight="49"/>
                 <RowDefinition Height="49" MinHeight="49"/>
@@ -47,6 +47,21 @@
             <TextBox x:Name="id" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="Идентификатор" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" Margin="0,0,0,2" PreviewTextInput="Id_PreviewTextInput"/>
             <Button  x:Name="delete" Grid.Row="3" Grid.Column="1" Margin="2" Content="Удаление" Height="Auto" Click="Delete_Click"/>
         </Grid>
-
+        <Grid Margin="10,218,10,10" Grid.Row="1" RenderTransformOrigin="0.507,0.474">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="21*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="113*"/>
+                <ColumnDefinition Width="110*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <CheckBox x:Name="end_emp" Content="Уволить сотрудника" FontSize="10" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center" Checked="End_emp_Checked" Unchecked="End_emp_Unchecked"/>
+                <TextBox x:Name="employee"  materialDesign:HintAssist.Hint="Код сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" VerticalAlignment="Top" Margin="0,0,0,2" PreviewTextInput="Id_PreviewTextInput" IsEnabled="False" RenderTransformOrigin="0.512,0.912"/>
+            </StackPanel>
+            <Button x:Name="del_emp" Content="Увольнение сотрудника"   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="Auto" IsEnabled="False" Click="Del_emp_Click"/>
+            <DatePicker x:Name="data_del_emp" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Дата увольнения" Style="{StaticResource MaterialDesignDatePicker}" IsEnabled="False" Height="41" Margin="0,25,0,57"/>
+        </Grid>
     </Grid>
 </Window>

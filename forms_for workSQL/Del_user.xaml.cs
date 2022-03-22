@@ -126,5 +126,47 @@ namespace rab_stol
             if (!Char.IsDigit(e.Text, 0))
                 e.Handled = true;
         }
+
+        #region checkbox
+        private void End_emp_Checked(object sender, RoutedEventArgs e)
+        {
+            employee.IsEnabled = true;
+            del_emp.IsEnabled = true;
+            data_del_emp.IsEnabled = true;
+        }
+
+        private void End_emp_Unchecked(object sender, RoutedEventArgs e)
+        {
+            employee.IsEnabled = false;
+            del_emp.IsEnabled = false;
+            data_del_emp.IsEnabled = false;
+        }
+        #endregion
+
+        /// <summary>
+        /// Увольнение сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Del_emp_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "UPDATE nefco.dbo.employee SET date_end = '" + (DateTime)data_del_emp.SelectedDate + "' WHERE id = " + Convert.ToInt32(employee.Text);
+                SqlCommand emp_uv = new SqlCommand(query, connection);
+
+                emp_uv.ExecuteNonQuery();
+
+                MessageBox.Show("Дата увольнения сотрудника проставлена", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка запроса", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
