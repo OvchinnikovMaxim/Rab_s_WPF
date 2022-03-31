@@ -57,7 +57,7 @@ namespace rab_stol
                     query = @"SELECT 
 							cu.id AS 'ИД сотрудника для ncsd',
 							cu.login AS 'Логин',
-							cu.password AS 'Пароль',	
+							cj.name AS 'Должность',	
 							cp.id AS 'ИД физического лица',
 							cp.name AS 'Имя',
 							cp.surname AS 'Фамилия',
@@ -74,6 +74,8 @@ namespace rab_stol
 						FROM nefco.dbo.co_user cu
 						  LEFT JOIN nefco.dbo.co_person cp ON cu.id=cp.user_id
 						  LEFT JOIN nefco.dbo.employee e ON e.person_id=cp.id
+                          LEFT JOIN nefco.dbo.employee_staff_list esl ON esl.id=e.staff_list_id
+						  LEFT JOIN nefco.dbo.co_job cj ON cj.id=esl.job_id
 						  WHERE cp.surname LIKE '%" + surname_ncsd.Text + "%' AND cu.del = 0";
 
                     adapter = new SqlDataAdapter(query, connection);
