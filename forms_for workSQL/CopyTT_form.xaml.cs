@@ -82,6 +82,7 @@ namespace rab_stol.forms_for_workSQL
                 int contractorTo = Convert.ToInt32(distrID_in.Text);
 
                 SqlCommand copyTT = new SqlCommand(q.copyTT_distr_sector(sectorFrom, sectorTo, contractorFrom, contractorTo), connection);
+                copyTT.CommandTimeout = 3600;
                 copyTT.ExecuteNonQuery();
 
                 MessageBox.Show("Копирование завершено", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -175,6 +176,7 @@ IF @ALL_IS_OK = 1 COMMIT TRANSACTION Trans_clients_2_contractor";
 
             
                 SqlCommand copyTT_new_distr = new SqlCommand(query, connection);
+                copyTT_new_distr.CommandTimeout = 3600;
                 copyTT_new_distr.ExecuteNonQuery();
 
                 MessageBox.Show("Копирование завершено", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
