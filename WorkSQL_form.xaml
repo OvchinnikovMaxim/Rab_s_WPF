@@ -27,7 +27,7 @@
         </Button>
         <Button x:Name="btn_new_tek" Grid.Row="0" Grid.Column="1" Margin="3" Height="Auto" Click="Btn_new_tek_Click">
             <Button.Content>
-                <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Добавление/Изменение транспортной компания" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Добавление/Изменение транспортной компании" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
         <Button x:Name="btn_new_user_inf" Grid.Row="0" Grid.Column="2" Margin="3" Height="Auto" Click="Btn_new_user_inf_Click">
