@@ -135,7 +135,7 @@ namespace rab_stol.forms_for_workSQL.autorization_forms
             }
             finally
             {
-                MessageBox.Show("Пользователь добавлен, проверьте", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Пользователь добавлен в программу "+ prg_id + ", проверьте", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 Close();
             }
