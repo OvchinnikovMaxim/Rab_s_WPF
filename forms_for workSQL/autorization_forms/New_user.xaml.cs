@@ -135,7 +135,8 @@ namespace rab_stol.forms_for_workSQL.autorization_forms
             }
             finally
             {
-                MessageBox.Show("Пользователь добавлен в программу "+ prg_id + ", проверьте", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+                string str = new SqlCommand("SELECT prgm_name FROM nefco.dbo.auth_prgm WHERE prgm_id=" + prg_id, connection).ExecuteScalar().ToString();
+                MessageBox.Show("Пользователь добавлен в программу "+ str + ", проверьте", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 Close();
             }
