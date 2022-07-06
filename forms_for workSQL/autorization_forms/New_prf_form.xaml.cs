@@ -147,7 +147,7 @@ namespace rab_stol.forms_for_workSQL.autorization_forms
                 {
                     string str = item.ToString().Substring(item.ToString().IndexOf(':') + 2);
                     int r = Prgm_Tags.Where(x => x.Value == str).FirstOrDefault().Key;
-                    SqlCommand command_ins_prf_tag = new SqlCommand("INSERT INTO auth_prf_tags(prf_id, tag, status_dependent) VALUES(" + prf_id + ",  " + r + ", 0)", connection);
+                    SqlCommand command_ins_prf_tag = new SqlCommand("INSERT INTO nefco.dbo.auth_prf_tags(prf_id, tag, status_dependent) VALUES(" + prf_id + ",  " + r + ", 0)", connection);
                     command_ins_prf_tag.ExecuteNonQuery();
                 }
             }
