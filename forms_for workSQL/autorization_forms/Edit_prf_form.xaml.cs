@@ -157,18 +157,6 @@ namespace rab_stol.forms_for_workSQL.autorization_forms
         }
 
         /// <summary>
-        /// Определение идентификатор добавленного профиля
-        /// </summary>
-        /// <param name="name">наименование профиля</param>
-        /// <param name="prg_id">идентификатор программы</param>
-        /// <returns>идентификатор профиля</returns>
-        public int _PRF_ID(string name, int prg_id)
-        {
-            SqlCommand command_scope = new SqlCommand("SELECT prf_id FROM nefco.dbo.auth_prf WHERE prf_name='" + name + "' AND prgm_id=" + prg_id, connection);
-            return Convert.ToInt32(command_scope.ExecuteScalar());
-        }
-
-        /// <summary>
         /// Очищение и добавление тэгов
         /// </summary>
         /// <param name="prf_id">идентификатор профиля</param>
