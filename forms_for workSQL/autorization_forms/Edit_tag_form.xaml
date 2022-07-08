@@ -1,0 +1,21 @@
+﻿<Window x:Class="rab_stol.forms_for_workSQL.autorization_forms.Edit_tag_form"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rab_stol.forms_for_workSQL.autorization_forms"
+        mc:Ignorable="d"        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Редактирование тэга" Height="150" Width="510" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="49" MinHeight="49" />
+        </Grid.RowDefinitions>
+        <TextBox x:Name="Name_edit_tag" Grid.Row="0" materialDesign:HintAssist.Hint="Действие тэга" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" TextChanged="Name_edit_tag_TextChanged" SpellCheck.IsEnabled="True" Language="ru-ru" />
+        <Canvas x:Name="YesCansel_canvas" Grid.Row="1" Grid.ColumnSpan="2">
+            <Button x:Name="Edit_tag" Content="ОК" Canvas.Left="319" Canvas.Top="8" Width="76" IsEnabled="False" Click="Edit_tag_Click"/>
+            <Button x:Name="Cansel" Content="Отмена" Canvas.Left="400" Canvas.Top="8" Click="Cansel_Click"/>
+        </Canvas>
+    </Grid>
+</Window>
