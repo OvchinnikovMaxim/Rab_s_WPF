@@ -39,7 +39,7 @@ namespace rab_stol.forms_for_workSQL.autorization_forms
         }
 
         /// <summary>
-        /// Активация кнопки для добавления нового пользователя
+        /// Активация кнопки для добавления нового профиля
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -117,12 +117,24 @@ namespace rab_stol.forms_for_workSQL.autorization_forms
 
         private void Edit_prf_Click(object sender, RoutedEventArgs e)
         {
-            string s = PRF_NAME;
-            _EDITPRF(Name_edit_prf.Text.ToString(), prf_id);
+            try
+            {
+                string s = PRF_NAME;
+                _EDITPRF(Name_edit_prf.Text.ToString(), prf_id);
 
-            _PRF_TAGS(prf_id);
+                _PRF_TAGS(prf_id);
 
-            Close();
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message.ToString(), "Результат", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                MessageBox.Show("Профиль изменен, проверьте", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                Close();
+            }
         }
 
         /// <summary>
