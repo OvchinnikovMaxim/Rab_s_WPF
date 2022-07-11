@@ -32,6 +32,12 @@ namespace rab_stol
             user_Inf_Form.Show();
         }
 
+        private void Btn_autorization_Click(object sender, RoutedEventArgs e)
+        {
+            Autorization_form autorization = new Autorization_form();
+            autorization.Show();
+        }
+
         private void Btn_copyTT_Click(object sender, RoutedEventArgs e)
         {
             CopyTT_form copyTT = new CopyTT_form();
@@ -73,6 +79,6 @@ namespace rab_stol
             Del_user del_User = new Del_user();
             del_User.Show();
         }
-        #endregion
+        #endregion       
     }
 }

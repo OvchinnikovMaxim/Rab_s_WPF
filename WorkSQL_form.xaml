@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:rab_stol"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Работа с базой" Height="400" Width="900" Icon="2.ico">
+        Title="Работа с базой" Height="400" Width="950" Icon="2.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -32,10 +33,15 @@
         </Button>
         <Button x:Name="btn_new_user_inf" Grid.Row="0" Grid.Column="2" Margin="3" Height="Auto" Click="Btn_new_user_inf_Click">
             <Button.Content>
-                <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый сотрудник для программ на делфи" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый пользователь для программ на делфи" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_copyTT" Grid.Row="0" Grid.Column="3" Margin="3" Height="Auto" Click="Btn_copyTT_Click">
+        <Button x:Name="btn_autorization" Grid.Row="0" Grid.Column="3" Margin="3" Height="Auto" Click="Btn_autorization_Click" >
+            <Button.Content>
+                <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Доступы для пользователя к программам на делфи" FontWeight="Bold" TextAlignment="Center"/>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btn_copyTT" Grid.Row="0" Grid.Column="4" Margin="3" Height="Auto" Click="Btn_copyTT_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Копирование клиентских карточек" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
@@ -61,7 +67,7 @@
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Новый класс прайс-листа" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
-        <Button x:Name="btn_tc_trip" Grid.Row="0" Grid.Column="4" Margin="3" Height="Auto" Click="Btn_tc_trip_Click">
+        <Button x:Name="btn_tc_trip" Grid.Row="0" Grid.Column="5" Margin="3" Height="Auto" Click="Btn_tc_trip_Click">
             <Button.Content>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Работа с рейсами" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>

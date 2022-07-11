@@ -78,6 +78,27 @@
     <Compile Include="Create_TT_form.xaml.cs">
       <DependentUpon>Create_TT_form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms_for workSQL\Autorization_form.xaml.cs">
+      <DependentUpon>Autorization_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\autorization_forms\Edit_prf_form.xaml.cs">
+      <DependentUpon>Edit_prf_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\autorization_forms\Edit_tag_form.xaml.cs">
+      <DependentUpon>Edit_tag_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\autorization_forms\Edit_user.xaml.cs">
+      <DependentUpon>Edit_user.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\autorization_forms\New_prf_form.xaml.cs">
+      <DependentUpon>New_prf_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\autorization_forms\New_tag_form.xaml.cs">
+      <DependentUpon>New_tag_form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms_for workSQL\autorization_forms\New_user.xaml.cs">
+      <DependentUpon>New_user.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms_for workSQL\Del_user.xaml.cs">
       <DependentUpon>Del_user.xaml</DependentUpon>
     </Compile>
@@ -135,6 +156,34 @@
       <DependentUpon>WorkSQL_form.xaml</DependentUpon>
     </Compile>
     <Page Include="Create_TT_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\Autorization_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\autorization_forms\Edit_prf_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\autorization_forms\Edit_tag_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\autorization_forms\Edit_user.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\autorization_forms\New_prf_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\autorization_forms\New_tag_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\autorization_forms\New_user.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

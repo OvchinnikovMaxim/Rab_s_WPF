@@ -121,6 +121,7 @@ namespace rab_stol
             text_btn_work_sql.Text = "*" + "Новый дистрибьютор";
             text_btn_work_sql.Text += '\n' + "*" + "Добавление/изменение транспортной";
             text_btn_work_sql.Text += '\n' + "*" + "Новый пользователь программ на делфи";
+            text_btn_work_sql.Text += '\n' + "*" + "Доступы для пользователя к программам на делфи";
             text_btn_work_sql.Text += '\n' + "*" + "Копирование клиентских карточек";
             text_btn_work_sql.Text += '\n' + "*" + "Удаление/Восстановление заказа в ZAKAZ_HAT";
             text_btn_work_sql.Text += '\n' + "*" + "Новый атрибут для материалов";
