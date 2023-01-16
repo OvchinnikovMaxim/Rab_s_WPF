@@ -138,6 +138,9 @@
     <Compile Include="forms_for workSQL\New_user_inf_form.xaml.cs">
       <DependentUpon>New_user_inf_form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms_for workSQL\Trip_to_fact.xaml.cs">
+      <DependentUpon>Trip_to_fact.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms_for workSQL\Work_trip.xaml.cs">
       <DependentUpon>Work_trip.xaml</DependentUpon>
     </Compile>
@@ -236,6 +239,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="forms_for workSQL\New_user_inf_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms_for workSQL\Trip_to_fact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

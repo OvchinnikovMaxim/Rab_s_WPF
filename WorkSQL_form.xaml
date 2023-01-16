@@ -77,5 +77,10 @@
                 <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Удаление уволенных сотрудников" FontWeight="Bold" TextAlignment="Center"/>
             </Button.Content>
         </Button>
+        <Button x:Name="btn_trip_to_fact" Grid.Row="1" Grid.Column="5" Margin="3" Height="Auto" Click="Btn_trip_to_fact_Click" >
+            <Button.Content>
+                <TextBlock FontFamily="Times New Roman" FontSize="18" TextWrapping="Wrap" Text="Перевести рейс в факт" FontWeight="Bold" TextAlignment="Center"/>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>

@@ -79,6 +79,12 @@ namespace rab_stol
             Del_user del_User = new Del_user();
             del_User.Show();
         }
-        #endregion       
+
+        private void Btn_trip_to_fact_Click(object sender, RoutedEventArgs e)
+        {
+            Trip_to_fact trip_To_Fact = new Trip_to_fact();
+            trip_To_Fact.Show();
+        }
+        #endregion
     }
 }
