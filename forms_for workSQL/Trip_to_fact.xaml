@@ -45,7 +45,7 @@
 
         <StackPanel x:Name="Date_time" Grid.Column="1" Grid.Row="3">
             <DatePicker x:Name="date_fact" materialDesign:HintAssist.Hint="Дата отъезда машины с комбината" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Times New Roman" FontSize="16" Height="39" Margin="5"/>
-            <materialDesign:TimePicker x:Name="time_fact"  Is24Hours="True" Text="Установить время фактический отгрузки" IsManipulationEnabled="False" SelectedTimeFormat="Long" Margin="5"/>
+            <materialDesign:TimePicker x:Name="time_fact"  Is24Hours="True" Text="Установить время отъезда" IsManipulationEnabled="False" SelectedTimeFormat="Long" Margin="5"/>
         </StackPanel>
 
         <Button x:Name="btn_to_fact" Grid.Column="2" Grid.Row="3" Content="Перевести рейс в факт" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="Btn_to_fact_Click"/>
