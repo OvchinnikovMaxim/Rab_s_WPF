@@ -1,0 +1,53 @@
+﻿<Window x:Class="rab_stol.forms_for_workSQL.Trip_to_fact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rab_stol.forms_for_workSQL"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Перевод рейса в факт" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" MinHeight="49"/>
+            <RowDefinition Height="100*" MinHeight="100" />
+            <RowDefinition Height="100*" MinHeight="100" />
+            <RowDefinition Height="80*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_connect" Content="Подключение" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="18" Height="Auto" Click="Btn_connect_Click"/>
+        <Label x:Name="label_status" Grid.Row="0" Grid.Column="2" FontSize="18"  FontFamily="Times New Roman" Content="Отключено" Foreground="#DDFF0000"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="text_server" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Сервер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5,0"  Text="192.168.2.7" PreviewTextInput="Text_server_PreviewTextInput" TextChanged="Text_server_TextChanged"  />
+
+        <StackPanel x:Name="lot_check" Grid.Row="1" Grid.Column="0">
+            <TextBox x:Name="lot_id" materialDesign:HintAssist.Hint="Номер лота" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="Lot_id_PreviewTextInput"/>
+            <Button x:Name="btn_lot_check" Content="Проверить" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="Btn_lot_check_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="grid_lot" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Width="Auto" Margin="5" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" />
+
+        <StackPanel x:Name="trip_check" Grid.Row="2" Grid.Column="0">
+            <TextBox x:Name="trip_id" materialDesign:HintAssist.Hint="Номер рейса" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="Trip_id_PreviewTextInput"/>
+            <Button x:Name="btn_trip_check" Content="Проверить" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="Btn_trip_check_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="grid_trip" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="Auto" Margin="5" Height="Auto" Background="#FFD2E2E2"  CanUserDeleteRows="False" CanUserAddRows="False" />
+
+        <StackPanel x:Name="SP_trip_to_fact" Grid.Row="3" Grid.Column="0">
+            <TextBox x:Name="trip_to_fact"  materialDesign:HintAssist.Hint="Номер рейса, переводимого в факт" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="17" HorizontalContentAlignment="Center" Margin="5" PreviewTextInput="Trip_id_PreviewTextInput" VerticalAlignment="Center"/>
+            <CheckBox x:Name="lot_to_end"  IsChecked="False" Content="Перевести лот по рейсу в завершенные" materialDesign:CheckBoxAssist.CheckBoxSize="50" FontFamily="Times New Roman" FontSize="14" Style="{StaticResource MaterialDesignFilterChipCheckBox}" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel x:Name="Date_time" Grid.Column="1" Grid.Row="3">
+            <DatePicker x:Name="date_fact" materialDesign:HintAssist.Hint="Дата фактический отгрузки" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Times New Roman" FontSize="18" Height="39" Margin="5"/>
+            <materialDesign:TimePicker x:Name="time_fact"  Is24Hours="True" Text="Установить время фактический отгрузки" IsManipulationEnabled="False" SelectedTimeFormat="Long" Margin="5"/>
+        </StackPanel>
+
+        <Button x:Name="btn_to_fact" Grid.Column="2" Grid.Row="3" Content="Перевести рейс в факт" FontFamily="Times New Roman" FontSize="18" Height="Auto" Margin="5" Click="Btn_to_fact_Click"/>
+    </Grid>
+</Window>
